@@ -26,24 +26,24 @@ import (
 
 type Req struct {
 	port int
-	url string
+	url  string
 }
 
 type Res struct {
-	port int
-	ctype []string
+	port    int
+	ctype   []string
 	cencode []string
-	body []byte
+	body    []byte
 }
 
 var (
 	// commandline options
-	iface = flag.String("i", "eth0", "Listen on interface.")
-	fname = flag.String("r", "", "Read packets from file.")
+	iface   = flag.String("i", "eth0", "Listen on interface.")
+	fname   = flag.String("r", "", "Read packets from file.")
 	snaplen = flag.Int("s", 1600, "Snarf bytes of data from each packet.")
-	filter = flag.String("f", "", "Selects which packets will be processed.")
+	filter  = flag.String("f", "", "Selects which packets will be processed.")
 
-	reqList = list.New()
+	reqList  = list.New()
 	parserCh = make(chan Res)
 )
 
@@ -172,24 +172,31 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_port/port":
 				m := data.(map[string]interface{})
 				api_data := m["api_data"].(map[string]interface{})
-				api_deck_port := api_data["api_deck_port"].([]interface{})
-				deck1 := api_deck_port[0].(map[string]interface{})
-				deck1_list := deck1["api_ship"].([]interface{})
 				api_ship := api_data["api_ship"].([]interface{})
+				api_deck_ports := api_data["api_deck_port"].([]interface{})
+				var deck_list [][]interface{}
+				for _, v := range api_deck_ports {
+					deck := v.(map[string]interface{})
+					deck_list = append(deck_list, deck["api_ship"].([]interface{}))
+				}
 
-				fmt.Printf("Deck1:\n")
-				for k, v := range deck1_list {
-					var ship map[string]interface{}
-					if v.(float64) < 0 {
-						continue
-					}
-					for _, s := range api_ship {
-						ship = s.(map[string]interface{})
-						if ship["api_id"] == v {
-							break
+				fmt.Printf("Deck:  1st  2nd  3rd  4th  5th  6th\n")
+				for i, line := range deck_list {
+					fmt.Printf("   %d:", i)
+					for _, v := range line {
+						var ship map[string]interface{}
+						if v.(float64) < 0 {
+							continue
 						}
+						for _, s := range api_ship {
+							ship = s.(map[string]interface{})
+							if ship["api_id"] == v {
+								break
+							}
+						}
+						fmt.Printf("%5.0f", ship["api_cond"])
 					}
-					fmt.Printf("  %d: cond = %3.0f\n", k, ship["api_cond"])
+					fmt.Printf("\n")
 				}
 
 			default:
@@ -270,6 +277,6 @@ func main() {
 		}
 	}
 
-	parserCh <- Res{port:0}
+	parserCh <- Res{port: 0}
 	wait.Wait()
 }
