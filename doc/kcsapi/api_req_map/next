@@ -1,0 +1,28 @@
+{
+  "api_data": {
+    "api_airsearch": {
+      "api_plane_type": 0,
+      "api_result": 0
+    },
+    "api_bosscell_no": 24,
+    "api_bosscomp": 1,
+    "api_color_no": 5,
+    "api_comment_kind": 1,
+    "api_event_id": 5,
+    "api_event_kind": 1,
+    "api_eventmap": {
+      "api_dmg": 1,
+      "api_max_maphp": 1700,
+      "api_now_maphp": 0
+    },
+    "api_maparea_id": 33,
+    "api_mapinfo_no": 3,
+    "api_next": 0,
+    "api_no": 20,
+    "api_production_kind": 1,
+    "api_rashin_flg": 1,
+    "api_rashin_id": 4
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

@@ -199,6 +199,18 @@ func parse(wait *sync.WaitGroup) {
 					fmt.Printf("\n")
 				}
 
+			case "/kcsapi/api_req_map/next":
+				/* do nothing */
+			case "/kcsapi/api_get_member/ship_deck":
+				/* do nothing */
+			case "/kcsapi/api_req_combined_battle/battle_water":
+				/* do nothing */
+			case "/kcsapi/api_req_combined_battle/battleresult":
+				/* do nothing */
+				//fallthrough
+				//log.Println("Check API:", req.url)
+				//bs, _ := json.MarshalIndent(data, "", "  ")
+				//fmt.Printf("%s\n", bs)
 			default:
 				log.Println("Unknown API:", req.url)
 			}
