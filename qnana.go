@@ -7,7 +7,7 @@ import (
 	"container/list"
 	"encoding/json"
 	"flag"
-	"fmt"
+	//"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -108,6 +108,30 @@ func (h *httpStream) run() {
 	}
 }
 
+type KcsapiBase struct {
+	ApiResult int			`json:"api_result"`
+	ApiResultMsg string		`json:"api_result_msg"`
+}
+
+type KcsapiGeneral struct {
+	ApiData interface{}		`json:"api_data"`
+	KcsapiBase
+}
+
+func handleGeneral(data []byte) error {
+	var v KcsapiGeneral
+
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	//str, _ := json.MarshalIndent(v, "", "  ")
+	//fmt.Printf("%s\n", str)
+
+	return err
+}
+
 func parse(wait *sync.WaitGroup) {
 	wait.Add(1)
 
@@ -161,15 +185,12 @@ func parse(wait *sync.WaitGroup) {
 			}
 			b = bytes.TrimPrefix(b, prefix)
 
-			var data interface{}
-			if err := json.Unmarshal(b, &data); err != nil {
-				log.Println("Failed to parse json: ", err)
-				log.Printf("%s", b)
-				continue
-			}
-
+			var err error
 			switch req.url {
 			case "/kcsapi/api_port/port":
+				err = handleApiPortPort(b)
+
+/*
 				m := data.(map[string]interface{})
 				api_data := m["api_data"].(map[string]interface{})
 				api_ship := api_data["api_ship"].([]interface{})
@@ -198,6 +219,7 @@ func parse(wait *sync.WaitGroup) {
 					}
 					fmt.Printf("\n")
 				}
+                */
 
 			case "/kcsapi/api_req_map/next":
 				/* do nothing */
@@ -213,6 +235,10 @@ func parse(wait *sync.WaitGroup) {
 				//fmt.Printf("%s\n", bs)
 			default:
 				log.Println("Unknown API:", req.url)
+				err = handleGeneral(b)
+			}
+			if err != nil {
+				log.Println("Failed parse JSON:", req.url)
 			}
 		}
 	}
