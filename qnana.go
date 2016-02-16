@@ -189,50 +189,12 @@ func parse(wait *sync.WaitGroup) {
 			switch req.url {
 			case "/kcsapi/api_port/port":
 				err = handleApiPortPort(b)
-
-/*
-				m := data.(map[string]interface{})
-				api_data := m["api_data"].(map[string]interface{})
-				api_ship := api_data["api_ship"].([]interface{})
-				api_deck_ports := api_data["api_deck_port"].([]interface{})
-				var deck_list [][]interface{}
-				for _, v := range api_deck_ports {
-					deck := v.(map[string]interface{})
-					deck_list = append(deck_list, deck["api_ship"].([]interface{}))
-				}
-
-				fmt.Printf("Deck:  1st  2nd  3rd  4th  5th  6th\n")
-				for i, line := range deck_list {
-					fmt.Printf("   %d:", i)
-					for _, v := range line {
-						var ship map[string]interface{}
-						if v.(float64) < 0 {
-							continue
-						}
-						for _, s := range api_ship {
-							ship = s.(map[string]interface{})
-							if ship["api_id"] == v {
-								break
-							}
-						}
-						fmt.Printf("%5.0f", ship["api_cond"])
-					}
-					fmt.Printf("\n")
-				}
-                */
-
 			case "/kcsapi/api_req_map/next":
 				/* do nothing */
 			case "/kcsapi/api_get_member/ship_deck":
 				/* do nothing */
 			case "/kcsapi/api_req_combined_battle/battle_water":
-				/* do nothing */
-			case "/kcsapi/api_req_combined_battle/battleresult":
-				/* do nothing */
-				//fallthrough
-				//log.Println("Check API:", req.url)
-				//bs, _ := json.MarshalIndent(data, "", "  ")
-				//fmt.Printf("%s\n", bs)
+				err = handleApiReqCombinedBattleBattleWater(b)
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(b)
