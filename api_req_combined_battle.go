@@ -29,6 +29,19 @@ func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 	fmt.Printf("\n")
 }
 
+type OpeningAtack struct {
+	ApiFdam []int `json:"api_fdam"`
+}
+
+func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, hps []int) {
+	fmt.Printf("%s:", label)
+	for i, v := range openingAtack.ApiFdam[1:] {
+		hps[i] -= v
+		fmt.Printf(" %3d", v)
+	}
+	fmt.Printf("\n")
+}
+
 type Hougeki struct {
 	ApiAtList []int         `json:"api_at_list"`
 	ApiDamage []interface{} `json:"api_damage"`
@@ -62,35 +75,46 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		default:
 			damage = nil
 		}
-		fmt.Printf(" => [")
+		fmt.Printf(" =>")
 		for i, v := range target {
-			fmt.Printf(" %2d", v)
+			fmt.Printf(" [%2d: %3d]", v, damage[i])
 			if v > 0 && v <= len(hps) {
 				hps[v-1] -= damage[i]
 			}
 		}
-		fmt.Printf("]: [")
-		for _, v := range damage {
-			fmt.Printf(" %3d", v)
-		}
-		fmt.Printf("]\n")
+		fmt.Printf("\n")
 	}
 	fmt.Printf("------------------------------------------------------\n")
 }
 
+type Raigeki struct {
+	ApiFdam []int `json:"api_fdam"`
+}
+
+func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
+	fmt.Printf("%s:", label)
+	for i, v := range raigeki.ApiFdam[1:] {
+		hps[i] -= v
+		fmt.Printf(" %3d", v)
+	}
+	fmt.Printf("\n")
+}
+
 type ApiReqCombinedBattleBattleWater struct {
-	ApiShipKe         []int   `json:"api_ship_ke"`
-	ApiKouku          Kouku   `json:"api_kouku"`
-	ApiHougeki1       Hougeki `json:"api_hougeki1"`
-	ApiHougeki2       Hougeki `json:"api_hougeki2"`
-	ApiHougeki3       Hougeki `json:"api_hougeki3"`
-	ApiMaxhps         []int   `json:"api_maxhps"`
-	ApiMaxhpsCombined []int   `json:"api_maxhps_combined"`
-	ApiNowhps         []int   `json:"api_nowhps"`
-	ApiNowhpsCombined []int   `json:"api_nowhps_combined"`
-	ApiStageFlag      []int   `json:"api_stage_flag"`
-	ApiOpeningFlag    int     `json:"api_opening_flag"`
-	ApiHouraiFlag     []int   `json:"api_hourai_flag"`
+	ApiShipKe         []int        `json:"api_ship_ke"`
+	ApiKouku          Kouku        `json:"api_kouku"`
+	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
+	ApiHougeki1       Hougeki      `json:"api_hougeki1"`
+	ApiHougeki2       Hougeki      `json:"api_hougeki2"`
+	ApiHougeki3       Hougeki      `json:"api_hougeki3"`
+	ApiRaigeki        Raigeki      `json:"api_raigeki"`
+	ApiMaxhps         []int        `json:"api_maxhps"`
+	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
+	ApiNowhps         []int        `json:"api_nowhps"`
+	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
+	ApiStageFlag      []int        `json:"api_stage_flag"`
+	ApiOpeningFlag    int          `json:"api_opening_flag"`
+	ApiHouraiFlag     []int        `json:"api_hourai_flag"`
 }
 
 type KcsapiApiReqCombinedBattleBattleWater struct {
@@ -134,7 +158,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
-		// calc raigeki
+		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", deck2_hps)
 	}
 	if v.ApiData.ApiHouraiFlag[0] == 1 {
 		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", deck1_hps)
@@ -146,7 +170,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", deck2_hps)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
-		// calc raigeki
+		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", deck2_hps)
 	}
 
 	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
@@ -156,7 +180,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 }
 
 type KcsapiApiReqCombinedBattleLdAirbattle struct {
-	ApiData interface{}		`json:"api_data"`
+	ApiData interface{} `json:"api_data"`
 	KcsapiBase
 }
 
@@ -169,5 +193,5 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 	//str, _ := json.MarshalIndent(v, "", "  ")
 	//fmt.Printf("%s\n", str)
 
-    return err
+	return err
 }

@@ -109,12 +109,12 @@ func (h *httpStream) run() {
 }
 
 type KcsapiBase struct {
-	ApiResult int			`json:"api_result"`
-	ApiResultMsg string		`json:"api_result_msg"`
+	ApiResult    int    `json:"api_result"`
+	ApiResultMsg string `json:"api_result_msg"`
 }
 
 type KcsapiGeneral struct {
-	ApiData interface{}		`json:"api_data"`
+	ApiData interface{} `json:"api_data"`
 	KcsapiBase
 }
 
@@ -195,7 +195,7 @@ func parse(wait *sync.WaitGroup) {
 				/* do nothing */
 			case "/kcsapi/api_req_combined_battle/battle_water":
 				err = handleApiReqCombinedBattleBattleWater(b)
-            case "/kcsapi/api_req_combined_battle/ld_airbattle":
+			case "/kcsapi/api_req_combined_battle/ld_airbattle":
 				err = handleApiReqCombinedBattleLdAirbattle(b)
 			default:
 				log.Println("Unknown API:", req.url)
