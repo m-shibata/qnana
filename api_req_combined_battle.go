@@ -154,3 +154,20 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 
 	return err
 }
+
+type KcsapiApiReqCombinedBattleLdAirbattle struct {
+	ApiData interface{}		`json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
+	var v KcsapiApiReqCombinedBattleLdAirbattle
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+	//str, _ := json.MarshalIndent(v, "", "  ")
+	//fmt.Printf("%s\n", str)
+
+    return err
+}
