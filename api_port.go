@@ -6,21 +6,21 @@ import (
 )
 
 type Ship struct {
-	ApiId int			`json:"api_id"`
-	ApiCond float64		`json:"api_cond"`
+	ApiId   int     `json:"api_id"`
+	ApiCond float64 `json:"api_cond"`
 }
 
 type DeckPort struct {
-	ApiShip []int		`json:"api_ship"`
+	ApiShip []int `json:"api_ship"`
 }
 
 type ApiPortPort struct {
-	ApiShip []Ship			`json:"api_ship"`
-	ApiDeckPort []DeckPort	`json:"api_deck_port"`
+	ApiShip     []Ship     `json:"api_ship"`
+	ApiDeckPort []DeckPort `json:"api_deck_port"`
 }
 
 type KcsapiApiPortPort struct {
-	ApiData ApiPortPort		`json:"api_data"`
+	ApiData ApiPortPort `json:"api_data"`
 	KcsapiBase
 }
 
@@ -30,7 +30,6 @@ func handleApiPortPort(data []byte) error {
 	if err != nil {
 		return err
 	}
-
 
 	fmt.Printf("Deck:  1st  2nd  3rd  4th  5th  6th\n")
 	for i, deck := range v.ApiData.ApiDeckPort {
@@ -47,4 +46,3 @@ func handleApiPortPort(data []byte) error {
 	}
 	return err
 }
-

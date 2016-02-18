@@ -21,7 +21,9 @@ func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 		fmt.Printf(" %3d", v)
 	}
 	fmt.Printf("\n")
-	if hps2 == nil { return }
+	if hps2 == nil {
+		return
+	}
 	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
 		hps2[i] -= v
@@ -54,7 +56,9 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 	fmt.Printf("[%8s]:\n", label)
 	prevLeftSide := false
 	for i, at := range hougeki.ApiAtList {
-		if at == -1 { continue }
+		if at == -1 {
+			continue
+		}
 		margin := ""
 		if at > len(hps) {
 			if !prevLeftSide {
@@ -89,7 +93,9 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		fmt.Printf(" =>")
 		for i, v := range target {
 			if i > 0 {
-				if at > len(hps) { fmt.Printf("\n%s", leftMargin) }
+				if at > len(hps) {
+					fmt.Printf("\n%s", leftMargin)
+				}
 				fmt.Printf("      ")
 			}
 			fmt.Printf(" %2d [%3d]", v, damage[i])
@@ -104,7 +110,9 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 			prevLeftSide = true
 		}
 	}
-	if prevLeftSide { fmt.Printf("\n") }
+	if prevLeftSide {
+		fmt.Printf("\n")
+	}
 }
 
 type Raigeki struct {
@@ -198,13 +206,13 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 }
 
 type ApiReqCombinedBattleLdAirbattle struct {
-	ApiShipKe         []int        `json:"api_ship_ke"`
-	ApiKouku          Kouku        `json:"api_kouku"`
-	ApiMaxhps         []int        `json:"api_maxhps"`
-	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
-	ApiNowhps         []int        `json:"api_nowhps"`
-	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
-	ApiStageFlag      []int        `json:"api_stage_flag"`
+	ApiShipKe         []int `json:"api_ship_ke"`
+	ApiKouku          Kouku `json:"api_kouku"`
+	ApiMaxhps         []int `json:"api_maxhps"`
+	ApiMaxhpsCombined []int `json:"api_maxhps_combined"`
+	ApiNowhps         []int `json:"api_nowhps"`
+	ApiNowhpsCombined []int `json:"api_nowhps_combined"`
+	ApiStageFlag      []int `json:"api_stage_flag"`
 }
 
 type KcsapiApiReqCombinedBattleLdAirbattle struct {
