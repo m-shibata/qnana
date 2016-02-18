@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"encoding/json"
 )
 
@@ -56,6 +57,17 @@ func handleApiReqPracticeBattle(data []byte) error {
 	}
 
 	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+
+	return err
+}
+
+func handleApiReqPracticeMidnightBattle(data []byte) error {
+	var v KcsapiApiReqPracticeBattle
+
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
 
 	return err
 }

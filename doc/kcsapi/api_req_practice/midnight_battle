@@ -1,0 +1,77 @@
+{
+  "api_data": {
+    "api_ship_ke": [
+      -1,
+      187,
+      129,
+      430,
+      151,
+      200,
+      -1
+    ],
+    "api_kouku": {
+      "api_stage3": {
+        "api_fdam": null
+      },
+      "api_stage3_combined": {
+        "api_fdam": null
+      }
+    },
+    "api_opening_atack": {
+      "api_fdam": null
+    },
+    "api_hougeki1": {
+      "api_at_list": null,
+      "api_damage": null,
+      "api_df_list": null
+    },
+    "api_hougeki2": {
+      "api_at_list": null,
+      "api_damage": null,
+      "api_df_list": null
+    },
+    "api_hougeki3": {
+      "api_at_list": null,
+      "api_damage": null,
+      "api_df_list": null
+    },
+    "api_raigeki": {
+      "api_fdam": null
+    },
+    "api_maxhps": [
+      -1,
+      32,
+      77,
+      49,
+      40,
+      31,
+      60,
+      45,
+      57,
+      67,
+      89,
+      51,
+      -1
+    ],
+    "api_nowhps": [
+      -1,
+      11,
+      3,
+      12,
+      40,
+      31,
+      60,
+      0,
+      0,
+      58,
+      54,
+      0,
+      -1
+    ],
+    "api_stage_flag": null,
+    "api_opening_flag": 0,
+    "api_hourai_flag": null
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

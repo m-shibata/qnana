@@ -210,6 +210,8 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqCombinedBattleLdAirbattle(b)
 			case "/kcsapi/api_req_practice/battle":
 				err = handleApiReqPracticeBattle(b)
+			case "/kcsapi/api_req_practice/midnight_battle":
+				err = handleApiReqPracticeMidnightBattle(b)
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(b)
