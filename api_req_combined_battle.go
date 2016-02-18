@@ -50,12 +50,22 @@ type Hougeki struct {
 }
 
 func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
+	const leftMargin = "                |"
 	fmt.Printf("[%8s]:\n", label)
+	prevLeftSide := false
 	for i, at := range hougeki.ApiAtList {
-		if at == -1 {
-			continue
+		if at == -1 { continue }
+		margin := ""
+		if at > len(hps) {
+			if !prevLeftSide {
+				margin = leftMargin
+			} else {
+				margin = " |"
+			}
+		} else if prevLeftSide {
+			fmt.Printf("\n")
 		}
-		fmt.Printf("%2d", at)
+		fmt.Printf("%s %2d", margin, at)
 		var target []int
 		switch t := hougeki.ApiDfList[i].(type) {
 		case []interface{}:
@@ -78,13 +88,23 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		}
 		fmt.Printf(" =>")
 		for i, v := range target {
-			fmt.Printf(" [%2d: %3d]", v, damage[i])
+			if i > 0 {
+				if at > len(hps) { fmt.Printf("\n%s", leftMargin) }
+				fmt.Printf("      ")
+			}
+			fmt.Printf(" %2d [%3d]", v, damage[i])
 			if v > 0 && v <= len(hps) {
 				hps[v-1] -= damage[i]
 			}
 		}
-		fmt.Printf("\n")
+		if at > len(hps) {
+			fmt.Printf("\n")
+			prevLeftSide = false
+		} else {
+			prevLeftSide = true
+		}
 	}
+	if prevLeftSide { fmt.Printf("\n") }
 }
 
 type Raigeki struct {
