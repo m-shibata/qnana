@@ -15,13 +15,13 @@ type Kouku struct {
 }
 
 func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
-	fmt.Printf("%s1:", label)
+	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
 		hps1[i] -= v
 		fmt.Printf(" %3d", v)
 	}
 	fmt.Printf("\n")
-	fmt.Printf("%s2:", label)
+	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
 		hps2[i] -= v
 		fmt.Printf(" %3d", v)
@@ -34,7 +34,7 @@ type OpeningAtack struct {
 }
 
 func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, hps []int) {
-	fmt.Printf("%s:", label)
+	fmt.Printf("[%8s]:", label)
 	for i, v := range openingAtack.ApiFdam[1:] {
 		hps[i] -= v
 		fmt.Printf(" %3d", v)
@@ -49,7 +49,7 @@ type Hougeki struct {
 }
 
 func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
-	fmt.Printf("[%8s]--------------------------------------------\n", label)
+	fmt.Printf("[%8s]:\n", label)
 	for i, at := range hougeki.ApiAtList {
 		if at == -1 {
 			continue
@@ -84,7 +84,6 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		}
 		fmt.Printf("\n")
 	}
-	fmt.Printf("------------------------------------------------------\n")
 }
 
 type Raigeki struct {
@@ -92,7 +91,7 @@ type Raigeki struct {
 }
 
 func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
-	fmt.Printf("%s:", label)
+	fmt.Printf("[%8s]:", label)
 	for i, v := range raigeki.ApiFdam[1:] {
 		hps[i] -= v
 		fmt.Printf(" %3d", v)
@@ -151,8 +150,6 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 
 	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
-	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
-	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
 
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
@@ -179,8 +176,18 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 	return err
 }
 
+type ApiReqCombinedBattleLdAirbattle struct {
+	ApiShipKe         []int        `json:"api_ship_ke"`
+	ApiKouku          Kouku        `json:"api_kouku"`
+	ApiMaxhps         []int        `json:"api_maxhps"`
+	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
+	ApiNowhps         []int        `json:"api_nowhps"`
+	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
+	ApiStageFlag      []int        `json:"api_stage_flag"`
+}
+
 type KcsapiApiReqCombinedBattleLdAirbattle struct {
-	ApiData interface{} `json:"api_data"`
+	ApiData ApiReqCombinedBattleLdAirbattle `json:"api_data"`
 	KcsapiBase
 }
 
@@ -190,8 +197,18 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 	if err != nil {
 		return err
 	}
-	//str, _ := json.MarshalIndent(v, "", "  ")
-	//fmt.Printf("%s\n", str)
+
+	enemy_size := len(v.ApiData.ApiShipKe) - 1
+
+	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+
+	if v.ApiData.ApiStageFlag[2] == 1 {
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
+	}
+
+	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
+	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
 
 	return err
 }
