@@ -93,8 +93,9 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		fmt.Printf(" =>")
 		for i, v := range target {
 			if i > 0 {
+				fmt.Printf("\n")
 				if at > len(hps) {
-					fmt.Printf("\n%s", leftMargin)
+					fmt.Printf("%s", leftMargin)
 				}
 				fmt.Printf("      ")
 			}
