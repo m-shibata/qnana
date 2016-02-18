@@ -21,6 +21,7 @@ func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 		fmt.Printf(" %3d", v)
 	}
 	fmt.Printf("\n")
+	if hps2 == nil { return }
 	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
 		hps2[i] -= v
