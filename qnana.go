@@ -7,7 +7,7 @@ import (
 	"container/list"
 	"encoding/json"
 	"flag"
-	//"fmt"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -118,7 +118,7 @@ type KcsapiGeneral struct {
 	KcsapiBase
 }
 
-func handleGeneral(data []byte) error {
+func handleParseError(data []byte) error {
 	var v KcsapiGeneral
 
 	err := json.Unmarshal(data, &v)
@@ -126,8 +126,19 @@ func handleGeneral(data []byte) error {
 		return err
 	}
 
-	//str, _ := json.MarshalIndent(v, "", "  ")
-	//fmt.Printf("%s\n", str)
+	str, _ := json.MarshalIndent(v, "", "  ")
+	fmt.Printf("%s\n", str)
+
+	return err
+}
+
+func handleGeneral(data []byte) error {
+	var v KcsapiGeneral
+
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
 
 	return err
 }
@@ -205,6 +216,7 @@ func parse(wait *sync.WaitGroup) {
 			}
 			if err != nil {
 				log.Println("Failed parse JSON:", req.url)
+				handleParseError(b)
 			}
 		}
 	}
