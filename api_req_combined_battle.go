@@ -6,7 +6,7 @@ import (
 )
 
 type Stage3 struct {
-	ApiFdam []int `json:"api_fdam"`
+	ApiFdam []float64 `json:"api_fdam"`
 }
 
 type Kouku struct {
@@ -17,8 +17,8 @@ type Kouku struct {
 func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
-		hps1[i] -= v
-		fmt.Printf(" %3d", v)
+		hps1[i] -= int(v)
+		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 	if hps2 == nil {
@@ -26,21 +26,21 @@ func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 	}
 	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
-		hps2[i] -= v
-		fmt.Printf(" %3d", v)
+		hps2[i] -= int(v)
+		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 }
 
 type OpeningAtack struct {
-	ApiFdam []int `json:"api_fdam"`
+	ApiFdam []float64 `json:"api_fdam"`
 }
 
 func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, hps []int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range openingAtack.ApiFdam[1:] {
-		hps[i] -= v
-		fmt.Printf(" %3d", v)
+		hps[i] -= int(v)
+		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 }
@@ -117,14 +117,14 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 }
 
 type Raigeki struct {
-	ApiFdam []int `json:"api_fdam"`
+	ApiFdam []float64 `json:"api_fdam"`
 }
 
 func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range raigeki.ApiFdam[1:] {
-		hps[i] -= v
-		fmt.Printf(" %3d", v)
+		hps[i] -= int(v)
+		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 }
