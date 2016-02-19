@@ -242,3 +242,34 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 
 	return err
 }
+
+type GetShip struct {
+	ApiShipId   int    `json:"api_ship_id"`
+	ApiShipName string `json:"api_ship_name"`
+	ApiShipType string `json:"api_ship_type"`
+}
+
+type ApiReqCombinedBattleBattleresult struct {
+	ApiGetFlag []int   `json:"api_get_flag"`
+	ApiGetShip GetShip `json:"api_get_ship"`
+	ApiWinRank string  `json:"api_win_rank"`
+}
+
+type KcsapiApiReqCombinedBattleBattleresult struct {
+	ApiData ApiReqCombinedBattleBattleresult `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqCombinedBattleBattleresult(data []byte) error {
+	var v KcsapiApiReqCombinedBattleBattleresult
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Rank: %s\n", v.ApiData.ApiWinRank)
+	if v.ApiData.ApiGetFlag[1] == 1 {
+		fmt.Printf("Reunited: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
+	}
+	return err
+}
