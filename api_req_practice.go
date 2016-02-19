@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"encoding/json"
 )
 
@@ -60,13 +61,55 @@ func handleApiReqPracticeBattle(data []byte) error {
 	return err
 }
 
+type ApiReqPracticeMidnightBattle struct {
+	ApiShipKe  []int   `json:"api_ship_ke"`
+	ApiHougeki Hougeki `json:"api_hougeki"`
+	ApiMaxhps  []int   `json:"api_maxhps"`
+	ApiNowhps  []int   `json:"api_nowhps"`
+}
+
+type KcsapiApiReqPracticeMidnightBattle struct {
+	ApiData ApiReqPracticeMidnightBattle `json:"api_data"`
+	KcsapiBase
+}
+
 func handleApiReqPracticeMidnightBattle(data []byte) error {
-	var v KcsapiApiReqPracticeBattle
+	var v KcsapiApiReqPracticeMidnightBattle
 
 	err := json.Unmarshal(data, &v)
 	if err != nil {
 		return err
 	}
+
+	enemy_size := len(v.ApiData.ApiShipKe) - 1
+
+	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", hps)
+
+	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+
+	return err
+}
+
+type ApiReqPracticeBattleResult struct {
+	ApiWinRank string `json:"api_win_rank"`
+}
+
+type KcsapiApiReqPracticeBattleResult struct {
+	ApiData ApiReqPracticeBattleResult `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqPracticeBattleResult(data []byte) error {
+	var v KcsapiApiReqPracticeBattleResult
+
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Rank: %s\n", v.ApiData.ApiWinRank)
 
 	return err
 }
