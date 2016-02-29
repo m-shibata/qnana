@@ -118,7 +118,7 @@ type KcsapiGeneral struct {
 	KcsapiBase
 }
 
-func handleParseError(data []byte) error {
+func handleParseError(url string, data []byte) error {
 	var v KcsapiGeneral
 
 	err := json.Unmarshal(data, &v)
@@ -126,6 +126,7 @@ func handleParseError(data []byte) error {
 		return err
 	}
 
+	log.Println("Failed parse JSON:", url)
 	str, _ := json.MarshalIndent(v, "", "  ")
 	fmt.Printf("%s\n", str)
 
@@ -217,16 +218,17 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_practice/battle_result":
 				err = handleApiReqPracticeBattleResult(b)
 			case "/kcsapi/api_req_sortie/battle":
-				/* do nothing */
+				err = handleApiReqSortieBattle(b)
+			case "/kcsapi/api_req_battle_midnight/battle":
+				handleParseError(req.url, b)
 			case "/kcsapi/api_req_sortie/battleresult":
-				/* do nothing */
+				err = handleApiReqSortieBattleresult(b)
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(b)
 			}
 			if err != nil {
-				log.Println("Failed parse JSON:", req.url)
-				handleParseError(b)
+				handleParseError(req.url, b)
 			}
 		}
 	}
