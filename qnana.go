@@ -221,6 +221,7 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqSortieBattle(b)
 			case "/kcsapi/api_req_battle_midnight/battle":
 				handleParseError(req.url, b)
+				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_sortie/battleresult":
 				err = handleApiReqSortieBattleresult(b)
 			default:
