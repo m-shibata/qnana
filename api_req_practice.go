@@ -109,7 +109,7 @@ func handleApiReqPracticeBattleResult(data []byte) error {
 		return err
 	}
 
-	fmt.Printf("Rank: %s\n", v.ApiData.ApiWinRank)
+	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
 
 	return err
 }

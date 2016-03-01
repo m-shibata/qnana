@@ -5,16 +5,47 @@ import (
 	"fmt"
 )
 
+type Stage1 struct {
+	ApiDispSeiku int         `json:"api_disp_seiku"`
+	ApiECount int         `json:"api_e_count"`
+	ApiELostcount int         `json:"api_e_lostcount"`
+	ApiFCount int         `json:"api_f_count"`
+	ApiFLostcount int         `json:"api_f_lostcount"`
+}
+
+type Stage2 struct {
+	ApiECount int         `json:"api_e_count"`
+	ApiELostcount int         `json:"api_e_lostcount"`
+	ApiFCount int         `json:"api_f_count"`
+	ApiFLostcount int         `json:"api_f_lostcount"`
+}
+
 type Stage3 struct {
 	ApiFdam []float64 `json:"api_fdam"`
 }
 
 type Kouku struct {
+	ApiStage1         Stage1 `json:"api_stage1"`
+	ApiStage2         Stage2 `json:"api_stage2"`
 	ApiStage3         Stage3 `json:"api_stage3"`
 	ApiStage3Combined Stage3 `json:"api_stage3_combined"`
 }
 
 func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
+	fmt.Printf("[%7s ]:", label)
+	switch kouku.ApiStage1.ApiDispSeiku {
+	case 1: fmt.Printf(" %-7s", "(S)")
+	case 2: fmt.Printf(" %-7s", "(A)")
+	case 3: fmt.Printf(" %-7s", "(B)")
+	case 4: fmt.Printf(" %-7s", "(C)")
+	}
+	fmt.Printf("%10s / %10s\n", "All", "Bombers")
+	fmt.Printf("            Friend %3d => %3d / %3d => %3d\n",
+        kouku.ApiStage1.ApiFCount, kouku.ApiStage1.ApiFCount - kouku.ApiStage1.ApiFLostcount,
+        kouku.ApiStage2.ApiFCount, kouku.ApiStage2.ApiFCount - kouku.ApiStage2.ApiFLostcount)
+	fmt.Printf("            Enemy  %3d => %3d / %3d => %3d\n",
+        kouku.ApiStage1.ApiECount, kouku.ApiStage1.ApiECount - kouku.ApiStage1.ApiELostcount,
+        kouku.ApiStage2.ApiECount, kouku.ApiStage2.ApiECount - kouku.ApiStage2.ApiELostcount)
 	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
 		hps1[i] -= int(v)
@@ -152,7 +183,7 @@ type KcsapiApiReqCombinedBattleBattleWater struct {
 }
 
 func dumpHps(label string, hps []int, maxhps []int) {
-	fmt.Printf("%s", label)
+	fmt.Printf("[%8s]:", label)
 	for i, hp := range hps {
 		var flag string
 		if hp > (maxhps[i+1] * 3 / 4) {
@@ -267,9 +298,9 @@ func handleApiReqCombinedBattleBattleresult(data []byte) error {
 		return err
 	}
 
-	fmt.Printf("Rank: %s\n", v.ApiData.ApiWinRank)
+	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
 	if v.ApiData.ApiGetFlag[1] == 1 {
-		fmt.Printf("Reunited: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
+		fmt.Printf("[Reunited]: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
 	}
 	return err
 }

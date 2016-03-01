@@ -80,9 +80,9 @@ func handleApiReqSortieBattleresult(data []byte) error {
 		return err
 	}
 
-	fmt.Printf("Rank: %s\n", v.ApiData.ApiWinRank)
+	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
 	if v.ApiData.ApiGetFlag[1] == 1 {
-		fmt.Printf("Reunited: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
+		fmt.Printf("[Reunited]: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
 	}
 
 	return err
