@@ -6,18 +6,18 @@ import (
 )
 
 type Stage1 struct {
-	ApiDispSeiku int         `json:"api_disp_seiku"`
-	ApiECount int         `json:"api_e_count"`
-	ApiELostcount int         `json:"api_e_lostcount"`
-	ApiFCount int         `json:"api_f_count"`
-	ApiFLostcount int         `json:"api_f_lostcount"`
+	ApiDispSeiku  int `json:"api_disp_seiku"`
+	ApiECount     int `json:"api_e_count"`
+	ApiELostcount int `json:"api_e_lostcount"`
+	ApiFCount     int `json:"api_f_count"`
+	ApiFLostcount int `json:"api_f_lostcount"`
 }
 
 type Stage2 struct {
-	ApiECount int         `json:"api_e_count"`
-	ApiELostcount int         `json:"api_e_lostcount"`
-	ApiFCount int         `json:"api_f_count"`
-	ApiFLostcount int         `json:"api_f_lostcount"`
+	ApiECount     int `json:"api_e_count"`
+	ApiELostcount int `json:"api_e_lostcount"`
+	ApiFCount     int `json:"api_f_count"`
+	ApiFLostcount int `json:"api_f_lostcount"`
 }
 
 type Stage3 struct {
@@ -32,20 +32,28 @@ type Kouku struct {
 }
 
 func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
-	fmt.Printf("[%7s ]:", label)
+	fmt.Printf("[%7s0]:", label)
 	switch kouku.ApiStage1.ApiDispSeiku {
-	case 1: fmt.Printf(" %-7s", "(S)")
-	case 2: fmt.Printf(" %-7s", "(A)")
-	case 3: fmt.Printf(" %-7s", "(B)")
-	case 4: fmt.Printf(" %-7s", "(C)")
+	case 0:
+		fmt.Printf(" %-7s", "(B)")
+	case 1:
+		fmt.Printf(" %-7s", "(S)")
+	case 2:
+		fmt.Printf(" %-7s", "(A)")
+	case 3:
+		fmt.Printf(" %-7s", "(C)")
+	case 4:
+		fmt.Printf(" %-7s", "(D)")
+	default:
+		fmt.Printf(" %-7s", "(-)")
 	}
 	fmt.Printf("%10s / %10s\n", "All", "Bombers")
 	fmt.Printf("            Friend %3d => %3d / %3d => %3d\n",
-        kouku.ApiStage1.ApiFCount, kouku.ApiStage1.ApiFCount - kouku.ApiStage1.ApiFLostcount,
-        kouku.ApiStage2.ApiFCount, kouku.ApiStage2.ApiFCount - kouku.ApiStage2.ApiFLostcount)
+		kouku.ApiStage1.ApiFCount, kouku.ApiStage1.ApiFCount-kouku.ApiStage1.ApiFLostcount,
+		kouku.ApiStage2.ApiFCount, kouku.ApiStage2.ApiFCount-kouku.ApiStage2.ApiFLostcount)
 	fmt.Printf("            Enemy  %3d => %3d / %3d => %3d\n",
-        kouku.ApiStage1.ApiECount, kouku.ApiStage1.ApiECount - kouku.ApiStage1.ApiELostcount,
-        kouku.ApiStage2.ApiECount, kouku.ApiStage2.ApiECount - kouku.ApiStage2.ApiELostcount)
+		kouku.ApiStage1.ApiECount, kouku.ApiStage1.ApiECount-kouku.ApiStage1.ApiELostcount,
+		kouku.ApiStage2.ApiECount, kouku.ApiStage2.ApiECount-kouku.ApiStage2.ApiELostcount)
 	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
 		hps1[i] -= int(v)
@@ -186,7 +194,10 @@ func dumpHps(label string, hps []int, maxhps []int) {
 	fmt.Printf("[%8s]:", label)
 	for i, hp := range hps {
 		var flag string
-		if hp > (maxhps[i+1] * 3 / 4) {
+		if maxhps[i+1] < 0 {
+			fmt.Printf(" ---/--- ")
+			continue
+		} else if hp > (maxhps[i+1] * 3 / 4) {
 			flag = " "
 		} else if hp > (maxhps[i+1] / 2) {
 			flag = "-"
