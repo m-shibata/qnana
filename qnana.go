@@ -158,6 +158,8 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_sortie/battleresult":
 				err = handleApiReqSortieBattleresult(b)
+			case "/kcsapi/api_req_sortie/airbattle":
+				handleParseError(req.url, b)
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(b)
