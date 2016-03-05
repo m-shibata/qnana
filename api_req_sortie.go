@@ -61,6 +61,44 @@ func handleApiReqSortieBattle(data []byte) error {
 	return err
 }
 
+type ApiReqSortieAirbattle struct {
+	ApiShipKe     []int `json:"api_ship_ke"`
+	ApiKouku      Kouku `json:"api_kouku"`
+	ApiKouku2     Kouku `json:"api_kouku2"`
+	ApiMaxhps     []int `json:"api_maxhps"`
+	ApiNowhps     []int `json:"api_nowhps"`
+	ApiStageFlag  []int `json:"api_stage_flag"`
+	ApiStageFlag2 []int `json:"api_stage_flag2"`
+}
+
+type KcsapiApiReqSortieAirbattle struct {
+	ApiData ApiReqSortieAirbattle `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqSortieAirbattle(data []byte) error {
+	var v KcsapiApiReqSortieAirbattle
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	enemy_size := len(v.ApiData.ApiShipKe) - 1
+
+	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+
+	if v.ApiData.ApiStageFlag[2] == 1 {
+		v.ApiData.ApiKouku.calcKoukuDamage("KoukuA", hps, nil)
+	}
+	if v.ApiData.ApiStageFlag2[2] == 1 {
+		v.ApiData.ApiKouku2.calcKoukuDamage("KoukuB", hps, nil)
+	}
+
+	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+
+	return err
+}
+
 type ApiReqSortieBattleresult struct {
 	ApiGetFlag []int   `json:"api_get_flag"`
 	ApiGetShip GetShip `json:"api_get_ship"`
