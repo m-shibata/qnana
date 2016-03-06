@@ -135,6 +135,12 @@ func parse(wait *sync.WaitGroup) {
 			switch req.url {
 			case "/kcsapi/api_port/port":
 				err = handleApiPortPort(b)
+			case "/kcsapi/api_get_member/mapinfo":
+				/* do nothing */
+			case "/kcsapi/api_get_member/mapcell":
+				/* do nothing */
+			case "/kcsapi/api_req_map/start":
+				/* do nothing */
 			case "/kcsapi/api_req_map/next":
 				/* do nothing */
 			case "/kcsapi/api_get_member/ship_deck":
@@ -153,12 +159,14 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqPracticeBattleResult(b)
 			case "/kcsapi/api_req_sortie/battle":
 				err = handleApiReqSortieBattle(b)
-			case "/kcsapi/api_req_battle_midnight/battle":
-				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_sortie/battleresult":
 				err = handleApiReqSortieBattleresult(b)
 			case "/kcsapi/api_req_sortie/airbattle":
 				err = handleApiReqSortieAirbattle(b)
+			case "/kcsapi/api_req_battle_midnight/battle":
+				err = handleApiReqBattleMidnightBattle(b)
+			case "/kcsapi/api_req_battle_midnight/sp_midnight":
+				err = handleApiReqBattleMidnightBattle(b)
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(b)
