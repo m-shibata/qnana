@@ -1,0 +1,81 @@
+{
+  "api_data": [
+    {
+      "api_enemy_comment": ".",
+      "api_enemy_comment_id": "142609641",
+      "api_enemy_flag": 3,
+      "api_enemy_flag_ship": 187,
+      "api_enemy_id": 869687,
+      "api_enemy_level": 120,
+      "api_enemy_name": "gohhan",
+      "api_enemy_name_id": "110147341",
+      "api_enemy_rank": "元帥",
+      "api_id": 1,
+      "api_medals": 3,
+      "api_member_id": 801275,
+      "api_state": 0
+    },
+    {
+      "api_enemy_comment": "",
+      "api_enemy_comment_id": "",
+      "api_enemy_flag": 2,
+      "api_enemy_flag_ship": 288,
+      "api_enemy_id": 9.038254e+06,
+      "api_enemy_level": 99,
+      "api_enemy_name": "きり",
+      "api_enemy_name_id": "137569831",
+      "api_enemy_rank": "少将",
+      "api_id": 2,
+      "api_medals": 0,
+      "api_member_id": 801275,
+      "api_state": 0
+    },
+    {
+      "api_enemy_comment": "出来るだけ単艦編成",
+      "api_enemy_comment_id": "128684701",
+      "api_enemy_flag": 2,
+      "api_enemy_flag_ship": 214,
+      "api_enemy_id": 878539,
+      "api_enemy_level": 110,
+      "api_enemy_name": "綺沙羅",
+      "api_enemy_name_id": "110754384",
+      "api_enemy_rank": "少将",
+      "api_id": 3,
+      "api_medals": 2,
+      "api_member_id": 801275,
+      "api_state": 0
+    },
+    {
+      "api_enemy_comment": "",
+      "api_enemy_comment_id": "142952151",
+      "api_enemy_flag": 2,
+      "api_enemy_flag_ship": 307,
+      "api_enemy_id": 858837,
+      "api_enemy_level": 99,
+      "api_enemy_name": "Lullshare",
+      "api_enemy_name_id": "101822565",
+      "api_enemy_rank": "少将",
+      "api_id": 4,
+      "api_medals": 1,
+      "api_member_id": 801275,
+      "api_state": 0
+    },
+    {
+      "api_enemy_comment": "",
+      "api_enemy_comment_id": "133848087",
+      "api_enemy_flag": 2,
+      "api_enemy_flag_ship": 151,
+      "api_enemy_id": 9.023295e+06,
+      "api_enemy_level": 98,
+      "api_enemy_name": "lishi",
+      "api_enemy_name_id": "133788263",
+      "api_enemy_rank": "少将",
+      "api_id": 5,
+      "api_medals": 0,
+      "api_member_id": 801275,
+      "api_state": 0
+    }
+  ],
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

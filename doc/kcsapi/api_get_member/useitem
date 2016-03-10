@@ -1,0 +1,188 @@
+{
+  "api_data": [
+    {
+      "api_category": 6,
+      "api_count": 7,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 10,
+      "api_member_id": 801275,
+      "api_name": "家具箱（小）",
+      "api_price": 0,
+      "api_usetype": 4,
+      "api_value": 7
+    },
+    {
+      "api_category": 0,
+      "api_count": 9,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 52,
+      "api_member_id": 801275,
+      "api_name": "特注家具職人",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 9
+    },
+    {
+      "api_category": 0,
+      "api_count": 15,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 54,
+      "api_member_id": 801275,
+      "api_name": "給糧艦「間宮」",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 15
+    },
+    {
+      "api_category": 0,
+      "api_count": 2,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 56,
+      "api_member_id": 801275,
+      "api_name": "艦娘からのチョコ",
+      "api_price": 0,
+      "api_usetype": 4,
+      "api_value": 2
+    },
+    {
+      "api_category": 0,
+      "api_count": 6,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 57,
+      "api_member_id": 801275,
+      "api_name": "勲章",
+      "api_price": 0,
+      "api_usetype": 4,
+      "api_value": 6
+    },
+    {
+      "api_category": 0,
+      "api_count": 10,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 59,
+      "api_member_id": 801275,
+      "api_name": "給糧艦「伊良湖」",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 10
+    },
+    {
+      "api_category": 0,
+      "api_count": 12,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 60,
+      "api_member_id": 801275,
+      "api_name": "プレゼント箱",
+      "api_price": 0,
+      "api_usetype": 4,
+      "api_value": 12
+    },
+    {
+      "api_category": 0,
+      "api_count": 5,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 64,
+      "api_member_id": 801275,
+      "api_name": "補強増設",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 5
+    },
+    {
+      "api_category": 0,
+      "api_count": 1,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 70,
+      "api_member_id": 801275,
+      "api_name": "熟練搭乗員",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 1
+    },
+    {
+      "api_category": 0,
+      "api_count": 1,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 50,
+      "api_member_id": 801275,
+      "api_name": "応急修理要員",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 1
+    },
+    {
+      "api_category": 0,
+      "api_count": 4,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 51,
+      "api_member_id": 801275,
+      "api_name": "応急修理女神",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 4
+    },
+    {
+      "api_category": 0,
+      "api_count": 0,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 66,
+      "api_member_id": 801275,
+      "api_name": "戦闘糧食",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 0
+    },
+    {
+      "api_category": 0,
+      "api_count": 0,
+      "api_description": [
+        "",
+        ""
+      ],
+      "api_id": 67,
+      "api_member_id": 801275,
+      "api_name": "洋上補給",
+      "api_price": 0,
+      "api_usetype": 0,
+      "api_value": 0
+    }
+  ],
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"log"
 	"runtime"
+	"strings"
 	"sync"
 	"time"
 
@@ -110,6 +111,10 @@ func parse(wait *sync.WaitGroup) {
 				continue
 			}
 
+			if !strings.HasPrefix(req.url, "/kcsapi/") {
+				continue
+			}
+
 			var b []byte
 			if hasKey("gzip", res.cencode) {
 				reader, err := gzip.NewReader(bytes.NewReader(res.body))
@@ -139,11 +144,25 @@ func parse(wait *sync.WaitGroup) {
 				/* do nothing */
 			case "/kcsapi/api_get_member/mapcell":
 				/* do nothing */
+			case "/kcsapi/api_get_member/practice":
+				/* do nothing */
+			case "/kcsapi/api_get_member/questlist":
+				/* do nothing */
+			case "/kcsapi/api_get_member/ship_deck":
+				/* do nothing */
+			case "/kcsapi/api_get_member/slot_item":
+				/* do nothing */
+			case "/kcsapi/api_get_member/unsetslot":
+				/* do nothing */
+			case "/kcsapi/api_get_member/useitem":
+				/* do nothing */
+			case "/kcsapi/api_req_hokyu/charge":
+				/* do nothing */
+			case "/kcsapi/api_req_member/get_practice_enemyinfo":
+				/* do nothing */
 			case "/kcsapi/api_req_map/start":
 				/* do nothing */
 			case "/kcsapi/api_req_map/next":
-				/* do nothing */
-			case "/kcsapi/api_get_member/ship_deck":
 				/* do nothing */
 			case "/kcsapi/api_req_combined_battle/battle_water":
 				err = handleApiReqCombinedBattleBattleWater(b)

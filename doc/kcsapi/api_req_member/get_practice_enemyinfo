@@ -1,0 +1,69 @@
+{
+  "api_data": {
+    "api_cmt": ".",
+    "api_cmt_id": "142609641",
+    "api_deck": {
+      "api_ships": [
+        {
+          "api_id": 1.83389325e+08,
+          "api_level": 74,
+          "api_ship_id": 187,
+          "api_star": 4
+        },
+        {
+          "api_id": 1.7329813e+07,
+          "api_level": 150,
+          "api_ship_id": 467,
+          "api_star": 4
+        },
+        {
+          "api_id": 1.8712632e+07,
+          "api_level": 135,
+          "api_ship_id": 188,
+          "api_star": 4
+        },
+        {
+          "api_id": 1.00637098e+08,
+          "api_level": 150,
+          "api_ship_id": 466,
+          "api_star": 4
+        },
+        {
+          "api_id": 1.12181088e+08,
+          "api_level": 147,
+          "api_ship_id": 275,
+          "api_star": 4
+        },
+        {
+          "api_id": 1.7032216e+07,
+          "api_level": 141,
+          "api_ship_id": 276,
+          "api_star": 4
+        }
+      ]
+    },
+    "api_deckname": "第1艦隊",
+    "api_deckname_id": "",
+    "api_experience": [
+      2.7992963e+07,
+      0
+    ],
+    "api_friend": 0,
+    "api_furniture": 162,
+    "api_level": 120,
+    "api_member_id": 869687,
+    "api_nickname": "gohhan",
+    "api_nickname_id": "110147341",
+    "api_rank": 1,
+    "api_ship": [
+      202,
+      210
+    ],
+    "api_slotitem": [
+      929,
+      937
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}
