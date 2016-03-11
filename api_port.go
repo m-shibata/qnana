@@ -74,9 +74,9 @@ func handleApiPortPort(data []byte) error {
 			if err == nil {
 				fmt.Printf("%5.0f", ship.ApiCond)
 			} else {
-				fmt.Printf(" ---")
+				fmt.Printf("  ---")
 			}
-			scouting_ship += float64(ship.ApiSakuteki[0])
+			scouting_ship += math.Sqrt(float64(ship.ApiSakuteki[0])) * 1.6841056
 
 			for _, item := range ship.ApiSlot {
 				if item == -1 {
@@ -108,7 +108,6 @@ func handleApiPortPort(data []byte) error {
 				}
 			}
 		}
-		scouting_ship = math.Sqrt(scouting_ship) * 1.6841056
 		scouting := scouting_ship + scouting_equip - scouting_lv
 		fmt.Printf("%8.2f (ship=%6.2f, equip=%6.2f)\n",
 			scouting, scouting_ship, scouting_equip)
