@@ -9,6 +9,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
+	"path"
 	"runtime"
 	"strings"
 	"sync"
@@ -68,13 +70,27 @@ func handleParseError(url string, data []byte) error {
 	return err
 }
 
-func handleGeneral(data []byte) error {
+func handleGeneral(url string, data []byte) error {
 	var v KcsapiGeneral
 
-	err := json.Unmarshal(data, &v)
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+
+	p := "./doc/" + url
+	d := path.Dir(p)
+	if err := os.MkdirAll(d, 0775); err != nil {
+		return err
+	}
+
+	f, err := os.Create(p)
 	if err != nil {
 		return err
 	}
+	defer f.Close()
+
+	str, _ := json.MarshalIndent(v, "", "  ")
+	_, err = f.Write(str)
 
 	return err
 }
@@ -188,7 +204,7 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqBattleMidnightBattle(b)
 			default:
 				log.Println("Unknown API:", req.url)
-				err = handleGeneral(b)
+				err = handleGeneral(req.url, b)
 			}
 			if err != nil {
 				handleParseError(req.url, b)

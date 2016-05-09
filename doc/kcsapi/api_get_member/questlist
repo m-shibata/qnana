@@ -1,94 +1,94 @@
 {
   "api_data": {
     "api_count": 16,
-    "api_disp_page": 1,
+    "api_disp_page": 2,
     "api_exec_count": 4,
-    "api_exec_type": 2.877465e+06,
+    "api_exec_type": 2.891584e+06,
     "api_list": [
       {
         "api_bonus_flag": 1,
         "api_category": 2,
-        "api_detail": "艦隊を出撃させ、敵艦隊を捕捉、これを撃滅せよ！",
+        "api_detail": "「第二戦隊」を基幹とした艦隊でカレー洋に進出、反復出撃により敵海上兵力を撃滅せよ！",
         "api_get_material": [
-          50,
-          50,
+          0,
+          400,
           0,
           0
         ],
         "api_invalid_flag": 0,
-        "api_no": 201,
+        "api_no": 258,
         "api_progress_flag": 0,
         "api_state": 1,
-        "api_title": "敵艦隊を撃破せよ！",
+        "api_title": "「第二戦隊」抜錨！",
+        "api_type": 1
+      },
+      {
+        "api_bonus_flag": 1,
+        "api_category": 2,
+        "api_detail": "「西村艦隊」を南方海域に進出させ、敵主力艦隊へ突入、これを撃滅せよ！",
+        "api_get_material": [
+          0,
+          0,
+          500,
+          300
+        ],
+        "api_invalid_flag": 0,
+        "api_no": 262,
+        "api_progress_flag": 0,
+        "api_state": 1,
+        "api_title": "「西村艦隊」南方海域へ進出せよ！",
+        "api_type": 1
+      },
+      {
+        "api_bonus_flag": 1,
+        "api_category": 2,
+        "api_detail": "第一艦隊に編成した「三川艦隊」を南方海域に進出させ、同方面の敵艦隊を撃滅せよ！",
+        "api_get_material": [
+          480,
+          480,
+          0,
+          0
+        ],
+        "api_invalid_flag": 0,
+        "api_no": 273,
+        "api_progress_flag": 0,
+        "api_state": 1,
+        "api_title": "新編「三川艦隊」ソロモン方面へ！",
+        "api_type": 1
+      },
+      {
+        "api_bonus_flag": 1,
+        "api_category": 3,
+        "api_detail": "今週中に「演習」で他の提督の艦隊に対して20回「勝利」しよう！",
+        "api_get_material": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "api_invalid_flag": 0,
+        "api_no": 302,
+        "api_progress_flag": 0,
+        "api_state": 2,
+        "api_title": "大規模演習",
+        "api_type": 3
+      },
+      {
+        "api_bonus_flag": 1,
+        "api_category": 3,
+        "api_detail": "本日中に他の司令官の艦隊に対して3回「演習」を挑もう！",
+        "api_get_material": [
+          50,
+          0,
+          50,
+          0
+        ],
+        "api_invalid_flag": 0,
+        "api_no": 303,
+        "api_progress_flag": 0,
+        "api_state": 2,
+        "api_title": "「演習」で練度向上！",
         "api_type": 2
-      },
-      {
-        "api_bonus_flag": 1,
-        "api_category": 2,
-        "api_detail": "練度の高い(Lv.90～99)第一艦隊旗艦で出撃し、オリョール海の暁に勝利を刻め！",
-        "api_get_material": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "api_invalid_flag": 0,
-        "api_no": 245,
-        "api_progress_flag": 0,
-        "api_state": 1,
-        "api_title": "式の準備！(最終)",
-        "api_type": 1
-      },
-      {
-        "api_bonus_flag": 1,
-        "api_category": 2,
-        "api_detail": "「第五戦隊」は沖ノ島沖の戦闘哨戒を実施、敵艦隊主力を捕捉、これを撃滅せよ！",
-        "api_get_material": [
-          0,
-          550,
-          550,
-          0
-        ],
-        "api_invalid_flag": 0,
-        "api_no": 249,
-        "api_progress_flag": 0,
-        "api_state": 1,
-        "api_title": "「第五戦隊」出撃せよ！",
-        "api_type": 6
-      },
-      {
-        "api_bonus_flag": 1,
-        "api_category": 2,
-        "api_detail": "錬成を終え再編成「二航戦」を基幹とした艦隊で、敵リランカ島を空襲、破砕せよ！",
-        "api_get_material": [
-          500,
-          0,
-          500,
-          0
-        ],
-        "api_invalid_flag": 0,
-        "api_no": 251,
-        "api_progress_flag": 0,
-        "api_state": 1,
-        "api_title": "精鋭「第二航空戦隊」抜錨せよ！",
-        "api_type": 1
-      },
-      {
-        "api_bonus_flag": 1,
-        "api_category": 2,
-        "api_detail": "潜水艦戦力を中核とした艦隊で中部海域哨戒線へ反復出撃、敵戦力を漸減せよ！",
-        "api_get_material": [
-          0,
-          600,
-          0,
-          0
-        ],
-        "api_invalid_flag": 0,
-        "api_no": 256,
-        "api_progress_flag": 0,
-        "api_state": 1,
-        "api_title": "「潜水艦隊」出撃せよ！",
-        "api_type": 6
       }
     ],
     "api_page_count": 4
