@@ -1,0 +1,72 @@
+{
+  "api_data": {
+    "api_clear_result": 1,
+    "api_detail": "水雷戦隊にドラム缶(輸送用)を積載し、北方方面の友軍への糧食補給を図れ！",
+    "api_get_exp": 45,
+    "api_get_exp_lvup": [
+      [
+        275761,
+        285400
+      ],
+      [
+        224784,
+        228000
+      ],
+      [
+        151159,
+        155500
+      ],
+      [
+        96144,
+        99000
+      ],
+      [
+        96338,
+        99000
+      ],
+      [
+        150309,
+        155500
+      ]
+    ],
+    "api_get_item1": {
+      "api_useitem_count": 1,
+      "api_useitem_id": 10,
+      "api_useitem_name": "家具箱（小）"
+    },
+    "api_get_material": [
+      320,
+      270,
+      0,
+      0
+    ],
+    "api_get_ship_exp": [
+      165,
+      110,
+      110,
+      110,
+      110,
+      110
+    ],
+    "api_maparea_name": "北方海域",
+    "api_member_exp": 2.161588e+06,
+    "api_member_lv": 102,
+    "api_quest_level": 6,
+    "api_quest_name": "北方鼠輸送作戦",
+    "api_ship_id": [
+      -1,
+      89,
+      128,
+      194,
+      4406,
+      4739,
+      3561
+    ],
+    "api_useitem_flag": [
+      4,
+      0
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

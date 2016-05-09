@@ -1,0 +1,74 @@
+{
+  "api_data": {
+    "api_deck": {
+      "1": {
+        "api_name": "第2艦隊",
+        "api_name_id": "",
+        "api_preset_no": 1,
+        "api_ship": [
+          150,
+          8,
+          11,
+          40,
+          51,
+          183
+        ]
+      },
+      "2": {
+        "api_name": "第1艦隊",
+        "api_name_id": "",
+        "api_preset_no": 2,
+        "api_ship": [
+          6163,
+          178,
+          136,
+          384,
+          27,
+          38
+        ]
+      },
+      "3": {
+        "api_name": "第1艦隊",
+        "api_name_id": "",
+        "api_preset_no": 3,
+        "api_ship": [
+          87,
+          281,
+          5639,
+          6287,
+          4339,
+          2
+        ]
+      },
+      "4": {
+        "api_name": "第1艦隊",
+        "api_name_id": "",
+        "api_preset_no": 4,
+        "api_ship": [
+          4723,
+          2270,
+          1545,
+          545,
+          249,
+          239
+        ]
+      },
+      "5": {
+        "api_name": "第1艦隊",
+        "api_name_id": "",
+        "api_preset_no": 5,
+        "api_ship": [
+          5465,
+          4789,
+          237,
+          7,
+          2,
+          1178
+        ]
+      }
+    },
+    "api_max_num": 5
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

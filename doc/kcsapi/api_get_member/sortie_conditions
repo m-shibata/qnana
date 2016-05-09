@@ -1,0 +1,11 @@
+{
+  "api_data": {
+    "api_war": {
+      "api_lose": "216",
+      "api_rate": "0.97",
+      "api_win": "7798"
+    }
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

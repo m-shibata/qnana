@@ -1,0 +1,90 @@
+{
+  "api_data": [
+    {
+      "api_flagship": "0",
+      "api_id": 1,
+      "api_member_id": 801275,
+      "api_mission": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "api_name": "第1艦隊",
+      "api_name_id": "",
+      "api_ship": [
+        84,
+        237,
+        97,
+        281,
+        49,
+        384
+      ]
+    },
+    {
+      "api_flagship": "0",
+      "api_id": 2,
+      "api_member_id": 801275,
+      "api_mission": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "api_name": "第1艦隊",
+      "api_name_id": "",
+      "api_ship": [
+        130,
+        2,
+        1,
+        27,
+        178,
+        136
+      ]
+    },
+    {
+      "api_flagship": "0",
+      "api_id": 3,
+      "api_member_id": 801275,
+      "api_mission": [
+        1,
+        181,
+        1.462809012407e+12,
+        0
+      ],
+      "api_name": "第3艦隊",
+      "api_name_id": "",
+      "api_ship": [
+        6157,
+        54,
+        440,
+        32,
+        161,
+        200
+      ]
+    },
+    {
+      "api_flagship": "0",
+      "api_id": 4,
+      "api_member_id": 801275,
+      "api_mission": [
+        1,
+        37,
+        1.462810014853e+12,
+        0
+      ],
+      "api_name": "第4艦隊",
+      "api_name_id": "",
+      "api_ship": [
+        89,
+        128,
+        194,
+        4406,
+        4739,
+        3561
+      ]
+    }
+  ],
+  "api_result": 1,
+  "api_result_msg": "成功"
+}
