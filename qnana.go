@@ -154,38 +154,40 @@ func parse(wait *sync.WaitGroup) {
 
 			var err error
 			switch req.url {
-			case "/kcsapi/api_port/port":
-				err = handleApiPortPort(b)
-			case "/kcsapi/api_get_member/mapinfo":
-				/* do nothing */
+			case "/kcsapi/api_get_member/deck":
 			case "/kcsapi/api_get_member/mapcell":
-				/* do nothing */
+			case "/kcsapi/api_get_member/mapinfo":
+			case "/kcsapi/api_get_member/material":
+			case "/kcsapi/api_get_member/mission":
+			case "/kcsapi/api_get_member/ndock":
 			case "/kcsapi/api_get_member/practice":
-				/* do nothing */
+			case "/kcsapi/api_get_member/preset_deck":
 			case "/kcsapi/api_get_member/questlist":
-				/* do nothing */
+			case "/kcsapi/api_get_member/require_info":
+			case "/kcsapi/api_get_member/ship3":
 			case "/kcsapi/api_get_member/ship_deck":
-				/* do nothing */
 			case "/kcsapi/api_get_member/slot_item":
-				/* do nothing */
+			case "/kcsapi/api_get_member/sortie_conditions":
 			case "/kcsapi/api_get_member/unsetslot":
-				/* do nothing */
 			case "/kcsapi/api_get_member/useitem":
 				/* do nothing */
+			case "/kcsapi/api_port/port":
+				err = handleApiPortPort(b)
 			case "/kcsapi/api_req_hokyu/charge":
-				/* do nothing */
 			case "/kcsapi/api_req_member/get_practice_enemyinfo":
-				/* do nothing */
 			case "/kcsapi/api_req_map/start":
-				/* do nothing */
 			case "/kcsapi/api_req_map/next":
 				/* do nothing */
-			case "/kcsapi/api_req_combined_battle/battle_water":
-				err = handleApiReqCombinedBattleBattleWater(b)
-			case "/kcsapi/api_req_combined_battle/ld_airbattle":
-				err = handleApiReqCombinedBattleLdAirbattle(b)
 			case "/kcsapi/api_req_combined_battle/battleresult":
 				err = handleApiReqCombinedBattleBattleresult(b)
+			case "/kcsapi/api_req_combined_battle/battle_water":
+				err = handleApiReqCombinedBattleBattleWater(b)
+			case "/kcsapi/api_req_combined_battle/goback_port":
+				/* do nothing */
+			case "/kcsapi/api_req_combined_battle/ld_airbattle":
+				err = handleApiReqCombinedBattleLdAirbattle(b)
+			case "/kcsapi/api_req_combined_battle/midnight_battle":
+				/* do nothing */
 			case "/kcsapi/api_req_practice/battle":
 				err = handleApiReqPracticeBattle(b)
 			case "/kcsapi/api_req_practice/midnight_battle":
@@ -202,6 +204,21 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_battle_midnight/sp_midnight":
 				err = handleApiReqBattleMidnightBattle(b)
+			case "/kcsapi/api_req_hensei/change":
+			case "/kcsapi/api_req_hensei/combined":
+			case "/kcsapi/api_req_kaisou/lock":
+			case "/kcsapi/api_req_kaisou/powerup":
+			case "/kcsapi/api_req_kaisou/slotset":
+			case "/kcsapi/api_req_kaisou/unsetslot_all":
+			case "/kcsapi/api_req_member/get_incentive":
+			case "/kcsapi/api_req_mission/result":
+			case "/kcsapi/api_req_mission/start":
+			case "/kcsapi/api_req_nyukyo/start":
+			case "/kcsapi/api_req_quest/clearitemget":
+			case "/kcsapi/api_req_quest/start":
+			case "/kcsapi/api_req_quest/stop":
+			case "/kcsapi/api_start2":
+				/* do nothing */
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(req.url, b)
