@@ -285,6 +285,40 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 	return err
 }
 
+type ApiReqCombinedBattleMidnightBattle struct {
+	ApiShipKe         []int   `json:"api_ship_ke"`
+	ApiHougeki        Hougeki `json:"api_hougeki"`
+	ApiMaxhps         []int   `json:"api_maxhps"`
+	ApiMaxhpsCombined []int   `json:"api_maxhps_combined"`
+	ApiNowhps         []int   `json:"api_nowhps"`
+	ApiNowhpsCombined []int   `json:"api_nowhps_combined"`
+}
+
+type KcsapiApiReqCombinedBattleMidnightBattle struct {
+	ApiData ApiReqCombinedBattleMidnightBattle `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqCombinedBattleMidnightBattle(data []byte) error {
+	var v KcsapiApiReqCombinedBattleMidnightBattle
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	enemy_size := len(v.ApiData.ApiShipKe) - 1
+
+	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", deck2_hps)
+
+	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
+	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+
+	return err
+}
+
 type GetShip struct {
 	ApiShipId   int    `json:"api_ship_id"`
 	ApiShipName string `json:"api_ship_name"`
