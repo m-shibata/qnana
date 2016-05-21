@@ -1,0 +1,13 @@
+{
+  "api_data": {
+    "api_caution_flag": 0,
+    "api_flag": 1,
+    "api_getitem": {
+      "api_getcount": 1,
+      "api_mst_id": 58,
+      "api_usemst": 6
+    }
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

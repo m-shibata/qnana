@@ -154,15 +154,19 @@ func parse(wait *sync.WaitGroup) {
 
 			var err error
 			switch req.url {
+			case "/kcsapi/api_get_member/base_air_corps":
+			case "/kcsapi/api_get_member/basic":
 			case "/kcsapi/api_get_member/deck":
 			case "/kcsapi/api_get_member/mapcell":
 			case "/kcsapi/api_get_member/mapinfo":
 			case "/kcsapi/api_get_member/material":
 			case "/kcsapi/api_get_member/mission":
 			case "/kcsapi/api_get_member/ndock":
+			case "/kcsapi/api_get_member/payitem":
 			case "/kcsapi/api_get_member/practice":
 			case "/kcsapi/api_get_member/preset_deck":
 			case "/kcsapi/api_get_member/questlist":
+			case "/kcsapi/api_get_member/record":
 			case "/kcsapi/api_get_member/require_info":
 			case "/kcsapi/api_get_member/ship3":
 			case "/kcsapi/api_get_member/ship_deck":
@@ -207,17 +211,23 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_battle_midnight/sp_midnight":
 				err = handleApiReqBattleMidnightBattle(b)
+			case "/kcsapi/api_req_air_corps/set_action":
+			case "/kcsapi/api_req_air_corps/set_plane":
+			case "/kcsapi/api_req_air_corps/supply":
 			case "/kcsapi/api_req_hensei/change":
 			case "/kcsapi/api_req_hensei/combined":
 			case "/kcsapi/api_req_hensei/lock":
 			case "/kcsapi/api_req_kaisou/lock":
 			case "/kcsapi/api_req_kaisou/powerup":
+			case "/kcsapi/api_req_kaisou/remodeling":
 			case "/kcsapi/api_req_kaisou/slot_exchange_index":
 			case "/kcsapi/api_req_kaisou/slotset":
 			case "/kcsapi/api_req_kaisou/unsetslot_all":
 			case "/kcsapi/api_req_kousyou/destroyitem2":
 			case "/kcsapi/api_req_map/select_eventmap_rank":
+			case "/kcsapi/api_req_map/start_air_base":
 			case "/kcsapi/api_req_member/get_incentive":
+			case "/kcsapi/api_req_member/itemuse":
 			case "/kcsapi/api_req_mission/result":
 			case "/kcsapi/api_req_mission/start":
 			case "/kcsapi/api_req_nyukyo/start":

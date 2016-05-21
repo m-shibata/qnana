@@ -1,0 +1,49 @@
+{
+  "api_data": {
+    "api_active_flag": 1,
+    "api_comment": "",
+    "api_comment_id": "",
+    "api_count_deck": 4,
+    "api_count_kdock": 2,
+    "api_count_ndock": 2,
+    "api_experience": 2.174709e+06,
+    "api_fcoin": 24030,
+    "api_firstflag": 1,
+    "api_fleetname": null,
+    "api_furniture": [
+      281,
+      282,
+      283,
+      286,
+      143,
+      285
+    ],
+    "api_level": 102,
+    "api_max_chara": 200,
+    "api_max_kagu": 0,
+    "api_max_slotitem": 897,
+    "api_medals": 0,
+    "api_member_id": "801275",
+    "api_ms_count": 5962,
+    "api_ms_success": 5934,
+    "api_nickname": "むらびと",
+    "api_nickname_id": "95825044",
+    "api_playtime": 0,
+    "api_pt_challenged": 0,
+    "api_pt_challenged_win": 0,
+    "api_pt_lose": 604,
+    "api_pt_win": 5338,
+    "api_pvp": [
+      0,
+      0
+    ],
+    "api_rank": 2,
+    "api_st_lose": 216,
+    "api_st_win": 7837,
+    "api_starttime": 1.463798889101e+12,
+    "api_tutorial": 0,
+    "api_tutorial_progress": 100
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

@@ -1,0 +1,42 @@
+{
+  "api_data": {
+    "api_after_bauxite": 236095,
+    "api_after_fuel": 196626,
+    "api_plane_info": [
+      {
+        "api_cond": 1,
+        "api_count": 12,
+        "api_max_count": 12,
+        "api_slotid": 4995,
+        "api_squadron_id": 1,
+        "api_state": 1
+      },
+      {
+        "api_cond": 1,
+        "api_count": 12,
+        "api_max_count": 12,
+        "api_slotid": 5009,
+        "api_squadron_id": 2,
+        "api_state": 1
+      },
+      {
+        "api_cond": 1,
+        "api_count": 12,
+        "api_max_count": 12,
+        "api_slotid": 7056,
+        "api_squadron_id": 3,
+        "api_state": 1
+      },
+      {
+        "api_cond": 1,
+        "api_count": 12,
+        "api_max_count": 12,
+        "api_slotid": 5226,
+        "api_squadron_id": 4,
+        "api_state": 1
+      }
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

@@ -1,0 +1,52 @@
+{
+  "api_data": {
+    "api_cmt": "",
+    "api_cmt_id": "",
+    "api_complate": [
+      "0.0",
+      "0.0"
+    ],
+    "api_deck": 4,
+    "api_experience": [
+      2.176586e+06,
+      2.2e+06
+    ],
+    "api_friend": 0,
+    "api_furniture": 149,
+    "api_kdoc": 2,
+    "api_large_dock": 1,
+    "api_level": 102,
+    "api_material_max": 26250,
+    "api_member_id": 801275,
+    "api_mission": {
+      "api_count": "5962",
+      "api_rate": "99.53",
+      "api_success": "5934"
+    },
+    "api_ndoc": 2,
+    "api_nickname": "むらびと",
+    "api_nickname_id": "95825044",
+    "api_photo_url": "",
+    "api_practice": {
+      "api_lose": "604",
+      "api_rate": "89.84",
+      "api_win": "5342"
+    },
+    "api_rank": 2,
+    "api_ship": [
+      184,
+      200
+    ],
+    "api_slotitem": [
+      874,
+      897
+    ],
+    "api_war": {
+      "api_lose": "216",
+      "api_rate": "0.97",
+      "api_win": "7845"
+    }
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}
