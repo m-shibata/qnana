@@ -168,6 +168,28 @@ func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
 	fmt.Printf("\n")
 }
 
+type ApiReqCombinedBattleBattle struct {
+	ApiShipKe         []int        `json:"api_ship_ke"`
+	ApiKouku          Kouku        `json:"api_kouku"`
+	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
+	ApiHougeki1       Hougeki      `json:"api_hougeki1"`
+	ApiHougeki2       Hougeki      `json:"api_hougeki2"`
+	ApiHougeki3       Hougeki      `json:"api_hougeki3"`
+	ApiRaigeki        Raigeki      `json:"api_raigeki"`
+	ApiMaxhps         []int        `json:"api_maxhps"`
+	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
+	ApiNowhps         []int        `json:"api_nowhps"`
+	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
+	ApiStageFlag      []int        `json:"api_stage_flag"`
+	ApiOpeningFlag    int          `json:"api_opening_flag"`
+	ApiHouraiFlag     []int        `json:"api_hourai_flag"`
+}
+
+type KcsapiApiReqCombinedBattleBattle struct {
+	ApiData ApiReqCombinedBattleBattle `json:"api_data"`
+	KcsapiBase
+}
+
 type ApiReqCombinedBattleBattleWater struct {
 	ApiShipKe         []int        `json:"api_ship_ke"`
 	ApiKouku          Kouku        `json:"api_kouku"`
@@ -209,6 +231,43 @@ func dumpHps(label string, hps []int, maxhps []int) {
 		fmt.Printf(" %3d/%3d%s", hp, maxhps[i+1], flag)
 	}
 	fmt.Printf("\n")
+}
+
+func handleApiReqCombinedBattleBattle(data []byte) error {
+	var v KcsapiApiReqCombinedBattleBattle
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	enemy_size := len(v.ApiData.ApiShipKe) - 1
+
+	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+
+	if v.ApiData.ApiStageFlag[2] == 1 {
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
+	}
+	if v.ApiData.ApiOpeningFlag == 1 {
+		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", deck2_hps)
+	}
+	if v.ApiData.ApiHouraiFlag[0] == 1 {
+		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", deck2_hps)
+	}
+	if v.ApiData.ApiHouraiFlag[1] == 1 {
+		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", deck2_hps)
+	}
+	if v.ApiData.ApiHouraiFlag[2] == 1 {
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", deck1_hps)
+	}
+	if v.ApiData.ApiHouraiFlag[3] == 1 {
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", deck1_hps)
+	}
+
+	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
+	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+
+	return err
 }
 
 func handleApiReqCombinedBattleBattleWater(data []byte) error {

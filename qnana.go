@@ -185,6 +185,8 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqCombinedBattleBattleWater(b)
 			case "/kcsapi/api_req_combined_battle/goback_port":
 				/* do nothing */
+			case "/kcsapi/api_req_combined_battle/battle":
+				err = handleApiReqCombinedBattleBattle(b)
 			case "/kcsapi/api_req_combined_battle/ld_airbattle":
 				err = handleApiReqCombinedBattleLdAirbattle(b)
 			case "/kcsapi/api_req_combined_battle/midnight_battle":
@@ -207,14 +209,19 @@ func parse(wait *sync.WaitGroup) {
 				err = handleApiReqBattleMidnightBattle(b)
 			case "/kcsapi/api_req_hensei/change":
 			case "/kcsapi/api_req_hensei/combined":
+			case "/kcsapi/api_req_hensei/lock":
 			case "/kcsapi/api_req_kaisou/lock":
 			case "/kcsapi/api_req_kaisou/powerup":
+			case "/kcsapi/api_req_kaisou/slot_exchange_index":
 			case "/kcsapi/api_req_kaisou/slotset":
 			case "/kcsapi/api_req_kaisou/unsetslot_all":
+			case "/kcsapi/api_req_kousyou/destroyitem2":
+			case "/kcsapi/api_req_map/select_eventmap_rank":
 			case "/kcsapi/api_req_member/get_incentive":
 			case "/kcsapi/api_req_mission/result":
 			case "/kcsapi/api_req_mission/start":
 			case "/kcsapi/api_req_nyukyo/start":
+			case "/kcsapi/api_req_nyukyo/speedchange":
 			case "/kcsapi/api_req_quest/clearitemget":
 			case "/kcsapi/api_req_quest/start":
 			case "/kcsapi/api_req_quest/stop":
