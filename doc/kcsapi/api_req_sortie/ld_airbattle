@@ -1,0 +1,375 @@
+{
+  "api_data": {
+    "api_air_base_attack": [
+      {
+        "api_base_id": 1,
+        "api_plane_from": [
+          [
+            7
+          ]
+        ],
+        "api_squadron_plane": [
+          {
+            "api_count": 12,
+            "api_mst_id": 109
+          },
+          {
+            "api_count": 12,
+            "api_mst_id": 22
+          },
+          {
+            "api_count": 12,
+            "api_mst_id": 22
+          },
+          {
+            "api_count": 12,
+            "api_mst_id": 22
+          }
+        ],
+        "api_stage1": {
+          "api_disp_seiku": 2,
+          "api_e_count": 96,
+          "api_e_lostcount": 50,
+          "api_f_count": 48,
+          "api_f_lostcount": 5,
+          "api_touch_plane": [
+            -1,
+            -1
+          ]
+        },
+        "api_stage2": null,
+        "api_stage3": null,
+        "api_stage_flag": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "api_dock_id": 1,
+    "api_eKyouka": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "api_eParam": [
+      [
+        150,
+        0,
+        120,
+        100
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "api_eSlot": [
+      [
+        562,
+        561,
+        556,
+        566,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    "api_fParam": [
+      [
+        80,
+        88,
+        80,
+        78
+      ],
+      [
+        57,
+        54,
+        116,
+        53
+      ],
+      [
+        70,
+        87,
+        52,
+        54
+      ],
+      [
+        50,
+        80,
+        62,
+        56
+      ],
+      [
+        59,
+        88,
+        78,
+        50
+      ],
+      [
+        77,
+        82,
+        82,
+        79
+      ]
+    ],
+    "api_formation": [
+      3,
+      3,
+      2
+    ],
+    "api_kouku": {
+      "api_plane_from": [
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "api_stage1": {
+        "api_disp_seiku": 4,
+        "api_e_count": 46,
+        "api_e_lostcount": 0,
+        "api_f_count": 9,
+        "api_f_lostcount": 2,
+        "api_touch_plane": [
+          -1,
+          -1
+        ]
+      },
+      "api_stage2": {
+        "api_e_count": 29,
+        "api_e_lostcount": 26,
+        "api_f_count": 7,
+        "api_f_lostcount": 0
+      },
+      "api_stage3": {
+        "api_ebak_flag": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "api_ecl_flag": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "api_edam": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "api_erai_flag": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "api_fbak_flag": [
+          -1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "api_fcl_flag": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "api_fdam": [
+          -1,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        "api_frai_flag": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "api_maxhps": [
+      -1,
+      56,
+      37,
+      32,
+      33,
+      31,
+      59,
+      600,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "api_midnight_flag": 0,
+    "api_nowhps": [
+      -1,
+      56,
+      34,
+      32,
+      33,
+      12,
+      52,
+      600,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "api_search": [
+      1,
+      1
+    ],
+    "api_ship_ke": [
+      -1,
+      682,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "api_ship_lv": [
+      -1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "api_stage_flag": [
+      1,
+      1,
+      1
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}
