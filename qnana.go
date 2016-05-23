@@ -237,8 +237,13 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_quest/clearitemget":
 			case "/kcsapi/api_req_quest/start":
 			case "/kcsapi/api_req_quest/stop":
-			case "/kcsapi/api_start2":
 				/* do nothing */
+			case "/kcsapi/api_start2":
+				/* allways update data */
+				err = handleGeneral(req.url, b)
+				if err != nil {
+					err = handleApiStart2(b)
+				}
 			default:
 				log.Println("Unknown API:", req.url)
 				err = handleGeneral(req.url, b)
@@ -265,6 +270,10 @@ func main() {
 	}
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	if err := dataSet.loadLocal("./doc/kcsapi/api_start2"); err != nil {
+		log.Println("Failed to load local data set: ", err)
 	}
 
 	if *filter == "" {
