@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"strings"
 )
 
 type MstShip struct {
@@ -73,18 +74,13 @@ type EquipData map[int]MstSlotitem
 func (data ShipData) dumpShipNames(label string, ids []int) {
 	fmt.Printf("[%8s]: ", label)
 
-	for i, id := range ids {
-		if id == -1 {
-			continue
-		}
-
-		fmt.Printf("%s", data[id].ApiName)
-
-		if i < len(ids)-1 {
-			fmt.Printf(" / ")
+	list := make([]string, 0)
+	for _, id := range ids {
+		if id != -1 {
+			list = append(list, data[id].ApiName)
 		}
 	}
-	fmt.Printf("\n")
+	fmt.Println(strings.Join(list, " / "))
 }
 
 var shipData ShipData
