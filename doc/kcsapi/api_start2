@@ -32256,7 +32256,7 @@
           4,
           6,
           18,
-          4
+          3
         ],
         "api_buildtime": 70,
         "api_bull_max": 65,
@@ -97165,6 +97165,46 @@
           33,
           41,
           33
+        ],
+        "api_usebull": "0"
+      },
+      {
+        "api_atap": 0,
+        "api_bakk": 0,
+        "api_baku": 0,
+        "api_broken": [
+          2,
+          4,
+          2,
+          0
+        ],
+        "api_cost": 13,
+        "api_distance": 10,
+        "api_houg": 0,
+        "api_houk": 0,
+        "api_houm": 2,
+        "api_id": 179,
+        "api_info": "大威力長射程を誇る、秘密兵器「九三式酸素魚雷」。\u003cbr\u003eその必殺の酸素魚雷を最大限に詰め込み、一基で旧型駆逐艦一隻分以上の雷装火力を持つ試作六連装【酸素魚雷】発射管です。\u003cbr\u003e後期の新型駆逐艦に搭載する計画もありました。",
+        "api_leng": 1,
+        "api_luck": 0,
+        "api_name": "試製61cm六連装(酸素)魚雷",
+        "api_raig": 14,
+        "api_raik": 0,
+        "api_raim": 0,
+        "api_rare": 4,
+        "api_sakb": 0,
+        "api_saku": 0,
+        "api_soku": 0,
+        "api_sortno": 179,
+        "api_souk": 0,
+        "api_taik": 0,
+        "api_tais": 0,
+        "api_tyku": 0,
+        "api_type": [
+          2,
+          3,
+          5,
+          5
         ],
         "api_usebull": "0"
       },
