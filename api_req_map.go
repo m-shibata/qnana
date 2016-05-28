@@ -79,10 +79,13 @@ func (k EventKind) Label(i EventId) string {
 		return "Dawn"
 	case EventKindAir:
 		return "Air"
+	case EventKindUnknown:
+		return "Unknown"
 	case EventKindLong:
 		return "Long"
 	}
-	return strconv.Itoa(int(i))
+
+	return strconv.Itoa(int(k))
 }
 
 const (
@@ -91,6 +94,7 @@ const (
 	EventKindNight
 	EventKindDawn
 	EventKindAir
+	EventKindUnknown
 	EventKindLong
 )
 
