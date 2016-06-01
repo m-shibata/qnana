@@ -1,0 +1,13 @@
+{
+  "api_data": {
+    "api_certain_buildkit": 3,
+    "api_certain_remodelkit": 1,
+    "api_change_flag": 0,
+    "api_req_buildkit": 2,
+    "api_req_remodelkit": 1,
+    "api_req_slot_id": 0,
+    "api_req_slot_num": 0
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

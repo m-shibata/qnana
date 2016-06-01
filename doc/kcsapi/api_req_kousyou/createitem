@@ -1,0 +1,40 @@
+{
+  "api_data": {
+    "api_create_flag": 1,
+    "api_material": [
+      178681,
+      193120,
+      296718,
+      221913,
+      1854,
+      599,
+      2955,
+      175
+    ],
+    "api_shizai_flag": 1,
+    "api_slot_item": {
+      "api_id": 11804,
+      "api_slotitem_id": 1
+    },
+    "api_type3": 1,
+    "api_unsetslot": [
+      9037,
+      11804,
+      11782,
+      7252,
+      5772,
+      11435,
+      3936,
+      567,
+      3756,
+      7368,
+      2571,
+      5572,
+      9107,
+      9127,
+      10250
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

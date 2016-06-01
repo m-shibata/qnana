@@ -1,0 +1,42 @@
+{
+  "api_data": [
+    {
+      "api_id": 101,
+      "api_req_bauxite": 0,
+      "api_req_buildkit": 1,
+      "api_req_bull": 30,
+      "api_req_fuel": 10,
+      "api_req_remodelkit": 1,
+      "api_req_slot_id": 0,
+      "api_req_slot_num": 0,
+      "api_req_steel": 60,
+      "api_slot_id": 2
+    },
+    {
+      "api_id": 201,
+      "api_req_bauxite": 0,
+      "api_req_buildkit": 1,
+      "api_req_bull": 50,
+      "api_req_fuel": 10,
+      "api_req_remodelkit": 1,
+      "api_req_slot_id": 0,
+      "api_req_slot_num": 0,
+      "api_req_steel": 80,
+      "api_slot_id": 4
+    },
+    {
+      "api_id": 315,
+      "api_req_bauxite": 10,
+      "api_req_buildkit": 2,
+      "api_req_bull": 150,
+      "api_req_fuel": 30,
+      "api_req_remodelkit": 1,
+      "api_req_slot_id": 0,
+      "api_req_slot_num": 0,
+      "api_req_steel": 310,
+      "api_slot_id": 36
+    }
+  ],
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

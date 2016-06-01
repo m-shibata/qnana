@@ -1,0 +1,25 @@
+{
+  "api_data": {
+    "api_flagship": "0",
+    "api_id": 1,
+    "api_member_id": 801275,
+    "api_mission": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "api_name": "第1艦隊",
+    "api_name_id": "",
+    "api_ship": [
+      4723,
+      2270,
+      1545,
+      545,
+      249,
+      239
+    ]
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

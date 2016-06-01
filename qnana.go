@@ -157,6 +157,7 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_get_member/base_air_corps":
 			case "/kcsapi/api_get_member/basic":
 			case "/kcsapi/api_get_member/deck":
+			case "/kcsapi/api_get_member/kdock":
 			case "/kcsapi/api_get_member/mapcell":
 			case "/kcsapi/api_get_member/mapinfo":
 			case "/kcsapi/api_get_member/material":
@@ -177,8 +178,8 @@ func parse(wait *sync.WaitGroup) {
 				/* do nothing */
 			case "/kcsapi/api_port/port":
 				err = handleApiPortPort(b)
-			case "/kcsapi/api_req_hokyu/charge":
 			case "/kcsapi/api_req_member/get_practice_enemyinfo":
+				/* do nothing */
 			case "/kcsapi/api_req_map/start":
 				err = handleApiReqMapStart(b)
 			case "/kcsapi/api_req_map/next":
@@ -216,16 +217,28 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_air_corps/set_action":
 			case "/kcsapi/api_req_air_corps/set_plane":
 			case "/kcsapi/api_req_air_corps/supply":
+			case "/kcsapi/api_req_furniture/buy":
+			case "/kcsapi/api_req_furniture/change":
 			case "/kcsapi/api_req_hensei/change":
 			case "/kcsapi/api_req_hensei/combined":
 			case "/kcsapi/api_req_hensei/lock":
+			case "/kcsapi/api_req_hensei/preset_register":
+			case "/kcsapi/api_req_hensei/preset_select":
+			case "/kcsapi/api_req_hokyu/charge":
 			case "/kcsapi/api_req_kaisou/lock":
 			case "/kcsapi/api_req_kaisou/powerup":
 			case "/kcsapi/api_req_kaisou/remodeling":
 			case "/kcsapi/api_req_kaisou/slot_exchange_index":
 			case "/kcsapi/api_req_kaisou/slotset":
 			case "/kcsapi/api_req_kaisou/unsetslot_all":
+			case "/kcsapi/api_req_kousyou/createitem":
+			case "/kcsapi/api_req_kousyou/createship":
 			case "/kcsapi/api_req_kousyou/destroyitem2":
+			case "/kcsapi/api_req_kousyou/destroyship":
+			case "/kcsapi/api_req_kousyou/getship":
+			case "/kcsapi/api_req_kousyou/remodel_slot":
+			case "/kcsapi/api_req_kousyou/remodel_slotlist":
+			case "/kcsapi/api_req_kousyou/remodel_slotlist_detail":
 			case "/kcsapi/api_req_map/select_eventmap_rank":
 			case "/kcsapi/api_req_map/start_air_base":
 			case "/kcsapi/api_req_member/get_incentive":
