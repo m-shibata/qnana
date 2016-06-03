@@ -131,8 +131,8 @@ type ApiReqMap struct {
 }
 
 func (info ApiReqMap) dumpInfo() {
-	fmt.Printf("[%2d - %2d]:", info.ApiMapareaId, info.ApiMapinfoNo)
-	fmt.Printf(" Next: %s", info.ApiNo)
+	fmt.Printf("[%2d-%d]:", info.ApiMapareaId, info.ApiMapinfoNo)
+	fmt.Printf(" Next: %s(%2d)", info.ApiNo, info.ApiNo)
 	fmt.Printf(" (%s/%s)", info.ApiEventId,
 		info.ApiEventKind.Label(info.ApiEventId))
 	if info.ApiNo == info.ApiBosscellNo {
