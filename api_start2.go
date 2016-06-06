@@ -77,7 +77,7 @@ func (data ShipData) dumpShipNames(label string, ids []int, enemy bool) {
 	list := make([]string, 0)
 	for _, id := range ids {
 		if id != -1 {
-			if enemy {
+			if enemy && data[id].ApiYomi != "-" {
 				list = append(list, fmt.Sprintf("%s%s",
 					data[id].ApiName, data[id].ApiYomi))
 			} else {
