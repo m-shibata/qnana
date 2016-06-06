@@ -240,7 +240,7 @@ func handleApiReqCombinedBattleBattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -278,7 +278,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -331,7 +331,7 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -368,7 +368,7 @@ func handleApiReqCombinedBattleMidnightBattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]

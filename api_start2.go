@@ -71,16 +71,27 @@ type MstSlotitem struct {
 type ShipData map[int]MstShip
 type EquipData map[int]MstSlotitem
 
-func (data ShipData) dumpShipNames(label string, ids []int) {
+func (data ShipData) dumpShipNames(label string, ids []int, enemy bool) {
 	fmt.Printf("[%8s]: ", label)
 
 	list := make([]string, 0)
 	for _, id := range ids {
 		if id != -1 {
-			list = append(list, data[id].ApiName)
+			if enemy {
+				list = append(list, fmt.Sprintf("%s%s",
+					data[id].ApiName, data[id].ApiYomi))
+			} else {
+				list = append(list, data[id].ApiName)
+			}
 		}
 	}
-	fmt.Println(strings.Join(list, " / "))
+	if len(list) > 3 {
+		fmt.Println(strings.Join(list[:3], " / "))
+		fmt.Printf("[%8s]: ", label)
+		fmt.Println(strings.Join(list[3:], " / "))
+	} else {
+		fmt.Println(strings.Join(list, " / "))
+	}
 }
 
 var shipData ShipData

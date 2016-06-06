@@ -33,7 +33,7 @@ func handleApiReqSortieBattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -84,7 +84,7 @@ func handleApiReqSortieAirbattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -121,7 +121,7 @@ func handleApiReqSortieLdAirbattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]

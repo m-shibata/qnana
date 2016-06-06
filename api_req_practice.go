@@ -33,7 +33,7 @@ func handleApiReqPracticeBattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, false)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
@@ -82,7 +82,7 @@ func handleApiReqPracticeMidnightBattle(data []byte) error {
 		return err
 	}
 
-	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe)
+	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, false)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
