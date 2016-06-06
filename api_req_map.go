@@ -98,22 +98,9 @@ const (
 	EventKindLong
 )
 
-type MapNo int
-
-const MapNos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-func (i MapNo) String() string {
-
-	if i < 1 || i > 26 {
-		return "0"
-	}
-
-	return MapNos[i-1 : i]
-}
-
 type ApiReqMap struct {
 	ApiAirsearch      interface{} `json:"api_airsearch"`
-	ApiBosscellNo     MapNo       `json:"api_bosscell_no"`
+	ApiBosscellNo     int         `json:"api_bosscell_no"`
 	ApiBosscomp       int         `json:"api_bosscomp"`
 	ApiColorNo        int         `json:"api_color_no"`
 	ApiCommentKind    int         `json:"api_comment_kind"`
@@ -124,16 +111,35 @@ type ApiReqMap struct {
 	ApiMapareaId      int         `json:"api_maparea_id"`
 	ApiMapinfoNo      int         `json:"api_mapinfo_no"`
 	ApiNext           int         `json:"api_next"`
-	ApiNo             MapNo       `json:"api_no"`
+	ApiNo             int         `json:"api_no"`
 	ApiProductionKind int         `json:"api_production_kind"`
 	ApiRashinFlg      int         `json:"api_rashin_flg"`
 	ApiRashinId       int         `json:"api_rashin_id"`
 }
 
+var mapIds = map[int]map[int]string{
+	1: {
+		1: "ABCDEFG",
+	},
+}
+
+func (info ApiReqMap) mapId() string {
+
+	id := strconv.Itoa(info.ApiNo)
+	if area, ok := mapIds[info.ApiMapareaId]; ok {
+		if subarea, ok := area[info.ApiMapinfoNo]; ok {
+			if info.ApiNo <= len(subarea) {
+				id = subarea[info.ApiNo-1 : info.ApiNo]
+			}
+		}
+	}
+
+	return fmt.Sprintf("%d-%d-%s", info.ApiMapareaId, info.ApiMapinfoNo, id)
+}
+
 func (info ApiReqMap) dumpInfo() {
-	fmt.Printf("[%2d-%d]:", info.ApiMapareaId, info.ApiMapinfoNo)
-	fmt.Printf(" Next: %s(%2d)", info.ApiNo, info.ApiNo)
-	fmt.Printf(" (%s/%s)", info.ApiEventId,
+	fmt.Printf("[%s]:", info.mapId())
+	fmt.Printf(" %s/%s", info.ApiEventId,
 		info.ApiEventKind.Label(info.ApiEventId))
 	if info.ApiNo == info.ApiBosscellNo {
 		fmt.Printf(" BOSS")
