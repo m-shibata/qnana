@@ -389,9 +389,13 @@ type GetShip struct {
 }
 
 type ApiReqCombinedBattleBattleresult struct {
-	ApiGetFlag []int   `json:"api_get_flag"`
-	ApiGetShip GetShip `json:"api_get_ship"`
-	ApiWinRank string  `json:"api_win_rank"`
+	ApiGetExpLvup         [][]int `json:"api_get_exp_lvup"`
+	ApiGetExpLvupCombined [][]int `json:"api_get_exp_lvup_combined"`
+	ApiGetShipExp         []int   `json:"api_get_ship_exp"`
+	ApiGetShipExpCombined []int   `json:"api_get_ship_exp_combined"`
+	ApiGetFlag            []int   `json:"api_get_flag"`
+	ApiGetShip            GetShip `json:"api_get_ship"`
+	ApiWinRank            string  `json:"api_win_rank"`
 }
 
 type KcsapiApiReqCombinedBattleBattleresult struct {
@@ -407,6 +411,9 @@ func handleApiReqCombinedBattleBattleresult(data []byte) error {
 	}
 
 	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
+	dumpExp("Exp1", v.ApiData.ApiGetExpLvup, v.ApiData.ApiGetShipExp)
+	dumpExp("Exp2", v.ApiData.ApiGetExpLvupCombined,
+		v.ApiData.ApiGetShipExpCombined)
 	if v.ApiData.ApiGetFlag[1] == 1 {
 		fmt.Printf("[Reunited]: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)
 	}

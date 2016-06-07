@@ -95,7 +95,9 @@ func handleApiReqPracticeMidnightBattle(data []byte) error {
 }
 
 type ApiReqPracticeBattleResult struct {
-	ApiWinRank string `json:"api_win_rank"`
+	ApiGetExpLvup [][]int `json:"api_get_exp_lvup"`
+	ApiGetShipExp []int   `json:"api_get_ship_exp"`
+	ApiWinRank    string  `json:"api_win_rank"`
 }
 
 type KcsapiApiReqPracticeBattleResult struct {
@@ -112,6 +114,7 @@ func handleApiReqPracticeBattleResult(data []byte) error {
 	}
 
 	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
+	dumpExp("Exp", v.ApiData.ApiGetExpLvup, v.ApiData.ApiGetShipExp)
 
 	return err
 }
