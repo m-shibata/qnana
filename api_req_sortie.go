@@ -140,6 +140,7 @@ type ApiReqSortieBattleresult struct {
 	ApiGetShipExp []int   `json:"api_get_ship_exp"`
 	ApiGetFlag    []int   `json:"api_get_flag"`
 	ApiGetShip    GetShip `json:"api_get_ship"`
+	ApiMvp        int     `json:"api_mvp"`
 	ApiWinRank    string  `json:"api_win_rank"`
 }
 
@@ -156,7 +157,8 @@ func handleApiReqSortieBattleresult(data []byte) error {
 		return err
 	}
 
-	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
+	dumpRank(RankParams{label: "Rank", rank: v.ApiData.ApiWinRank,
+		mvp1: v.ApiData.ApiMvp})
 	dumpExp("Exp", v.ApiData.ApiGetExpLvup, v.ApiData.ApiGetShipExp)
 	if v.ApiData.ApiGetFlag[1] == 1 {
 		fmt.Printf("[Reunited]: %s %s\n", v.ApiData.ApiGetShip.ApiShipType, v.ApiData.ApiGetShip.ApiShipName)

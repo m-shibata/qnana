@@ -395,6 +395,8 @@ type ApiReqCombinedBattleBattleresult struct {
 	ApiGetShipExpCombined []int   `json:"api_get_ship_exp_combined"`
 	ApiGetFlag            []int   `json:"api_get_flag"`
 	ApiGetShip            GetShip `json:"api_get_ship"`
+	ApiMvp                int     `json:"api_mvp"`
+	ApiMvpCombined        int     `json:"api_mvp_combined"`
 	ApiWinRank            string  `json:"api_win_rank"`
 }
 
@@ -410,7 +412,8 @@ func handleApiReqCombinedBattleBattleresult(data []byte) error {
 		return err
 	}
 
-	fmt.Printf("[%8s]: %s\n", "Rank", v.ApiData.ApiWinRank)
+	dumpRank(RankParams{label: "Rank", rank: v.ApiData.ApiWinRank,
+		mvp1: v.ApiData.ApiMvp, mvp2: v.ApiData.ApiMvpCombined})
 	dumpExp("Exp1", v.ApiData.ApiGetExpLvup, v.ApiData.ApiGetShipExp)
 	dumpExp("Exp2", v.ApiData.ApiGetExpLvupCombined,
 		v.ApiData.ApiGetShipExpCombined)
