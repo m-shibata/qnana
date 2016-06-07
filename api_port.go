@@ -13,6 +13,7 @@ type Basic struct {
 
 type Ship struct {
 	ApiId       int     `json:"api_id"`
+	ApiShipId   int     `json:"api_ship_id"`
 	ApiCond     float64 `json:"api_cond"`
 	ApiKaryoku  []int   `json:"api_karyoku"`
 	ApiRaisou   []int   `json:"api_raisou"`
@@ -26,6 +27,17 @@ type Ship struct {
 	ApiSlot     []int   `json:"api_slot"`
 	ApiSlotnum  int     `json:"api_slotnum"`
 }
+
+func (ship Ship) String() string {
+	if len(shipData) > ship.ApiShipId {
+		return shipData[ship.ApiShipId].ApiName
+	} else {
+		return "unknown"
+	}
+}
+
+var currentDeckId int
+var decksData [][]Ship
 
 type DeckPort struct {
 	ApiShip []int `json:"api_ship"`
@@ -59,6 +71,8 @@ func handleApiPortPort(data []byte) error {
 		return err
 	}
 
+	currentDeckId = 1
+	decksData = make([][]Ship, len(v.ApiData.ApiDeckPort))
 	lv := (v.ApiData.ApiBasic.ApiLevel / 5)
 	if (v.ApiData.ApiBasic.ApiLevel % 5) != 0 {
 		lv++
@@ -68,6 +82,7 @@ func handleApiPortPort(data []byte) error {
 	for i, deck := range v.ApiData.ApiDeckPort {
 		scouting_ship := 0.0
 		scouting_equip := 0.0
+		decksData = append(decksData, make([]Ship, 6))
 		fmt.Printf("   %d:", i)
 		for _, id := range deck.ApiShip {
 			ship, err := v.ApiData.findShip(id)
@@ -76,8 +91,9 @@ func handleApiPortPort(data []byte) error {
 			} else {
 				fmt.Printf("  ---")
 			}
-			scouting_ship += math.Sqrt(float64(ship.ApiSakuteki[0])) * 1.6841056
+			decksData[i] = append(decksData[i], ship)
 
+			scouting_ship += math.Sqrt(float64(ship.ApiSakuteki[0])) * 1.6841056
 			for _, item := range ship.ApiSlot {
 				if item == -1 {
 					continue

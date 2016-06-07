@@ -169,6 +169,7 @@ func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
 }
 
 type ApiReqCombinedBattleBattle struct {
+	ApiDeckId         int          `json:"api_deck_id"`
 	ApiShipKe         []int        `json:"api_ship_ke"`
 	ApiKouku          Kouku        `json:"api_kouku"`
 	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
@@ -191,6 +192,7 @@ type KcsapiApiReqCombinedBattleBattle struct {
 }
 
 type ApiReqCombinedBattleBattleWater struct {
+	ApiDeckId         int          `json:"api_deck_id"`
 	ApiShipKe         []int        `json:"api_ship_ke"`
 	ApiKouku          Kouku        `json:"api_kouku"`
 	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
@@ -240,6 +242,7 @@ func handleApiReqCombinedBattleBattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
@@ -278,6 +281,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
@@ -310,6 +314,7 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 }
 
 type ApiReqCombinedBattleLdAirbattle struct {
+	ApiDeckId         int   `json:"api_deck_id"`
 	ApiShipKe         []int `json:"api_ship_ke"`
 	ApiKouku          Kouku `json:"api_kouku"`
 	ApiMaxhps         []int `json:"api_maxhps"`
@@ -331,6 +336,7 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
@@ -348,6 +354,7 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 }
 
 type ApiReqCombinedBattleMidnightBattle struct {
+	ApiDeckId         int     `json:"api_deck_id"`
 	ApiShipKe         []int   `json:"api_ship_ke"`
 	ApiHougeki        Hougeki `json:"api_hougeki"`
 	ApiMaxhps         []int   `json:"api_maxhps"`
@@ -368,6 +375,7 @@ func handleApiReqCombinedBattleMidnightBattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 

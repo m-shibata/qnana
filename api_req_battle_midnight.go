@@ -5,6 +5,7 @@ import (
 )
 
 type ApiReqBattleMidnightBattle struct {
+	ApiDeckId  int     `json:"api_deck_id"`
 	ApiShipKe  []int   `json:"api_ship_ke"`
 	ApiHougeki Hougeki `json:"api_hougeki"`
 	ApiMaxhps  []int   `json:"api_maxhps"`
@@ -24,6 +25,7 @@ func handleApiReqBattleMidnightBattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 

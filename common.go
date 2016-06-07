@@ -11,16 +11,29 @@ type RankParams struct {
 }
 
 func dumpRank(param RankParams) {
+	label := param.label
 
-	if param.mvp1 <= 0 {
-		fmt.Printf("[%8s]: %s\n", param.label, param.rank)
-	} else if param.mvp2 <= 0 {
-		fmt.Printf("[%8s]: %s(%d)\n", param.label+"/MVP",
-			param.rank, param.mvp1)
-	} else {
-		fmt.Printf("[%8s]: %s(%d, %d)\n", param.label+"/MVP",
-			param.rank, param.mvp1, param.mvp2)
+	if param.mvp1 > 0 {
+		label += "/MVP"
 	}
+	fmt.Printf("[%8s]: %s", label, param.rank)
+
+	if param.mvp1 > 0 {
+		if len(decksData) < currentDeckId {
+			fmt.Printf(" / unknown deck")
+		} else if len(decksData[currentDeckId-1]) < param.mvp1 {
+			fmt.Printf(" / unknown")
+		} else {
+			fmt.Printf(" / %s", decksData[currentDeckId-1][param.mvp1-1])
+			if param.mvp2 > 0 {
+				if len(decksData[currentDeckId-1]) < param.mvp2 {
+					fmt.Printf(", unknown")
+					fmt.Printf(", %s", decksData[currentDeckId-1][param.mvp2-1])
+				}
+			}
+		}
+	}
+	fmt.Printf("\n")
 }
 
 func dumpExp(label string, bases [][]int, exp []int) {

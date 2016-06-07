@@ -6,6 +6,7 @@ import (
 )
 
 type ApiReqSortieBattle struct {
+	ApiDockId       int          `json:"api_dock_id"`
 	ApiShipKe       []int        `json:"api_ship_ke"`
 	ApiKouku        Kouku        `json:"api_kouku"`
 	ApiOpeningAtack OpeningAtack `json:"api_opening_atack"`
@@ -33,6 +34,7 @@ func handleApiReqSortieBattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDockId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
@@ -63,6 +65,7 @@ func handleApiReqSortieBattle(data []byte) error {
 }
 
 type ApiReqSortieAirbattle struct {
+	ApiDockId     int   `json:"api_dock_id"`
 	ApiShipKe     []int `json:"api_ship_ke"`
 	ApiKouku      Kouku `json:"api_kouku"`
 	ApiKouku2     Kouku `json:"api_kouku2"`
@@ -84,6 +87,7 @@ func handleApiReqSortieAirbattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDockId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
@@ -102,6 +106,7 @@ func handleApiReqSortieAirbattle(data []byte) error {
 }
 
 type ApiReqSortieLdAirbattle struct {
+	ApiDockId    int   `json:"api_dock_id"`
 	ApiShipKe    []int `json:"api_ship_ke"`
 	ApiKouku     Kouku `json:"api_kouku"`
 	ApiMaxhps    []int `json:"api_maxhps"`
@@ -121,6 +126,7 @@ func handleApiReqSortieLdAirbattle(data []byte) error {
 		return err
 	}
 
+	currentDeckId = v.ApiData.ApiDockId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
 	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
