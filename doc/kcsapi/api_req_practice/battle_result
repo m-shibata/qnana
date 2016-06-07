@@ -1,0 +1,64 @@
+{
+  "api_data": {
+    "api_dests": 2,
+    "api_destsf": 1,
+    "api_enemy_info": {
+      "api_deck_name": "第1艦隊",
+      "api_level": 120,
+      "api_rank": "元帥",
+      "api_user_name": ""
+    },
+    "api_get_base_exp": 630,
+    "api_get_exp": 96,
+    "api_get_exp_lvup": [
+      [
+        121088,
+        122500
+      ],
+      [
+        809899,
+        851500
+      ],
+      [
+        192779,
+        195800
+      ],
+      [
+        113746,
+        117600
+      ],
+      [
+        114275,
+        117600
+      ],
+      [
+        297731,
+        307400
+      ]
+    ],
+    "api_get_ship_exp": [
+      -1,
+      945,
+      630,
+      630,
+      630,
+      630,
+      1260
+    ],
+    "api_member_exp": 1.723479e+06,
+    "api_member_lv": 101,
+    "api_mvp": 6,
+    "api_ship_id": [
+      -1,
+      187,
+      467,
+      188,
+      466,
+      275,
+      276
+    ],
+    "api_win_rank": "B"
+  },
+  "api_result": 1,
+  "api_result_msg": "成功"
+}
