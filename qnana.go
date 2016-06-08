@@ -233,7 +233,9 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_kaisou/slot_exchange_index":
 			case "/kcsapi/api_req_kaisou/slotset":
 			case "/kcsapi/api_req_kaisou/unsetslot_all":
+				/* do nothing */
 			case "/kcsapi/api_req_kousyou/createitem":
+				err = handleApiReqKousyouCreateitem(b)
 			case "/kcsapi/api_req_kousyou/createship":
 			case "/kcsapi/api_req_kousyou/createship_speedchange":
 			case "/kcsapi/api_req_kousyou/destroyitem2":
