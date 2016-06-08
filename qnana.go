@@ -240,7 +240,9 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_kousyou/createship_speedchange":
 			case "/kcsapi/api_req_kousyou/destroyitem2":
 			case "/kcsapi/api_req_kousyou/destroyship":
+				/* do nothing */
 			case "/kcsapi/api_req_kousyou/getship":
+				err = handleApiReqKousyouGetship(b)
 			case "/kcsapi/api_req_kousyou/remodel_slot":
 			case "/kcsapi/api_req_kousyou/remodel_slotlist":
 			case "/kcsapi/api_req_kousyou/remodel_slotlist_detail":

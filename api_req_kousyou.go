@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 type SlotItem struct {
@@ -41,5 +42,41 @@ func handleApiReqKousyouCreateitem(data []byte) error {
 		}
 	}
 	fmt.Printf("[%8s]: %s\n", "Item", item)
+	return nil
+}
+
+type ApiReqKousyouGetship struct {
+	ApiShipId   int        `json:"api_ship_id"`
+	ApiSlotItem []SlotItem `json:"api_slot_item"`
+}
+
+type KcsapiApiReqKousyouGetship struct {
+	ApiData ApiReqKousyouGetship `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiReqKousyouGetship(data []byte) error {
+	var v KcsapiApiReqKousyouGetship
+
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	ship := "unknown"
+	if len(shipData) > v.ApiData.ApiShipId {
+		ship = shipData[v.ApiData.ApiShipId].ApiName
+	}
+	items := make([]string, 0)
+	for _, item := range v.ApiData.ApiSlotItem {
+		if len(equipData) > item.ApiSlotitemId {
+			items = append(items, equipData[item.ApiSlotitemId].ApiName)
+		}
+	}
+	fmt.Printf("[%8s]: %s", "Reunited", ship)
+	if len(items) > 0 {
+		fmt.Printf(" (%s)", strings.Join(items, ", "))
+	}
+	fmt.Printf("\n")
 	return nil
 }
