@@ -7,6 +7,7 @@ import (
 
 type ApiReqSortieBattle struct {
 	ApiDockId       int          `json:"api_dock_id"`
+	ApiFormation    Formation    `json:"api_formation"`
 	ApiShipKe       []int        `json:"api_ship_ke"`
 	ApiKouku        Kouku        `json:"api_kouku"`
 	ApiOpeningAtack OpeningAtack `json:"api_opening_atack"`
@@ -40,6 +41,7 @@ func handleApiReqSortieBattle(data []byte) error {
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 
+	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", hps, nil)
 	}
@@ -65,14 +67,15 @@ func handleApiReqSortieBattle(data []byte) error {
 }
 
 type ApiReqSortieAirbattle struct {
-	ApiDockId     int   `json:"api_dock_id"`
-	ApiShipKe     []int `json:"api_ship_ke"`
-	ApiKouku      Kouku `json:"api_kouku"`
-	ApiKouku2     Kouku `json:"api_kouku2"`
-	ApiMaxhps     []int `json:"api_maxhps"`
-	ApiNowhps     []int `json:"api_nowhps"`
-	ApiStageFlag  []int `json:"api_stage_flag"`
-	ApiStageFlag2 []int `json:"api_stage_flag2"`
+	ApiDockId     int       `json:"api_dock_id"`
+	ApiFormation  Formation `json:"api_formation"`
+	ApiShipKe     []int     `json:"api_ship_ke"`
+	ApiKouku      Kouku     `json:"api_kouku"`
+	ApiKouku2     Kouku     `json:"api_kouku2"`
+	ApiMaxhps     []int     `json:"api_maxhps"`
+	ApiNowhps     []int     `json:"api_nowhps"`
+	ApiStageFlag  []int     `json:"api_stage_flag"`
+	ApiStageFlag2 []int     `json:"api_stage_flag2"`
 }
 
 type KcsapiApiReqSortieAirbattle struct {
@@ -93,6 +96,7 @@ func handleApiReqSortieAirbattle(data []byte) error {
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 
+	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("KoukuA", hps, nil)
 	}
@@ -106,12 +110,13 @@ func handleApiReqSortieAirbattle(data []byte) error {
 }
 
 type ApiReqSortieLdAirbattle struct {
-	ApiDockId    int   `json:"api_dock_id"`
-	ApiShipKe    []int `json:"api_ship_ke"`
-	ApiKouku     Kouku `json:"api_kouku"`
-	ApiMaxhps    []int `json:"api_maxhps"`
-	ApiNowhps    []int `json:"api_nowhps"`
-	ApiStageFlag []int `json:"api_stage_flag"`
+	ApiDockId    int       `json:"api_dock_id"`
+	ApiFormation Formation `json:"api_formation"`
+	ApiShipKe    []int     `json:"api_ship_ke"`
+	ApiKouku     Kouku     `json:"api_kouku"`
+	ApiMaxhps    []int     `json:"api_maxhps"`
+	ApiNowhps    []int     `json:"api_nowhps"`
+	ApiStageFlag []int     `json:"api_stage_flag"`
 }
 
 type KcsapiApiReqSortieLdAirbattle struct {
@@ -132,6 +137,7 @@ func handleApiReqSortieLdAirbattle(data []byte) error {
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 
+	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", hps, nil)
 	}

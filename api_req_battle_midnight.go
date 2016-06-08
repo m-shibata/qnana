@@ -40,11 +40,12 @@ func handleApiReqBattleMidnightBattle(data []byte) error {
 }
 
 type ApiReqBattleMidnightSpMidnight struct {
-	ApiDeckId  int     `json:"api_deck_id"`
-	ApiShipKe  []int   `json:"api_ship_ke"`
-	ApiHougeki Hougeki `json:"api_hougeki"`
-	ApiMaxhps  []int   `json:"api_maxhps"`
-	ApiNowhps  []int   `json:"api_nowhps"`
+	ApiDeckId    int       `json:"api_deck_id"`
+	ApiFormation Formation `json:"api_formation"`
+	ApiShipKe    []int     `json:"api_ship_ke"`
+	ApiHougeki   Hougeki   `json:"api_hougeki"`
+	ApiMaxhps    []int     `json:"api_maxhps"`
+	ApiNowhps    []int     `json:"api_nowhps"`
 }
 
 type KcsapiApiReqBattleMidnightSpMidnight struct {
@@ -66,6 +67,7 @@ func handleApiReqBattleMidnightSpMidnight(data []byte) error {
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 
+	v.ApiData.ApiFormation.dumpFormation()
 	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", hps)
 
 	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)

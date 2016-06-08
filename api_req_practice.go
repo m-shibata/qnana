@@ -6,6 +6,7 @@ import (
 
 type ApiReqPracticeBattle struct {
 	ApiDockId       int          `json:"api_dock_id"`
+	ApiFormation    Formation    `json:"api_formation"`
 	ApiShipKe       []int        `json:"api_ship_ke"`
 	ApiKouku        Kouku        `json:"api_kouku"`
 	ApiOpeningAtack OpeningAtack `json:"api_opening_atack"`
@@ -39,6 +40,7 @@ func handleApiReqPracticeBattle(data []byte) error {
 
 	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
 
+	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", hps, nil)
 	}
