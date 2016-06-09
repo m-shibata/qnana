@@ -28,13 +28,11 @@ func handleApiReqBattleMidnightBattle(data []byte) error {
 
 	currentDeckId, _ = strconv.Atoi(v.ApiData.ApiDeckId)
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-
-	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", hps)
-
-	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", damage, 0)
+	damage.dumpHps()
 
 	return err
 }
@@ -63,14 +61,11 @@ func handleApiReqBattleMidnightSpMidnight(data []byte) error {
 
 	currentDeckId = v.ApiData.ApiDeckId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-
-	v.ApiData.ApiFormation.dumpFormation()
-	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", hps)
-
-	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", damage, 0)
+	damage.dumpHps()
 
 	return err
 }

@@ -36,31 +36,31 @@ func handleApiReqPracticeBattle(data []byte) error {
 
 	currentDeckId = v.ApiData.ApiDockId
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, false)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
 
 	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
-		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", hps, nil)
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
-		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", hps)
+		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[0] == 1 {
-		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", hps)
+		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[1] == 1 {
-		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", hps)
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[2] == 1 {
-		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", hps)
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
-		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", hps)
+		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", damage, 0)
 	}
 
-	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+	damage.dumpHps()
 
 	return err
 }
@@ -86,13 +86,11 @@ func handleApiReqPracticeMidnightBattle(data []byte) error {
 	}
 
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, false)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-
-	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", hps)
-
-	dumpHps("Deck", hps, v.ApiData.ApiMaxhps)
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", damage, 0)
+	damage.dumpHps()
 
 	return err
 }

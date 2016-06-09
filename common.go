@@ -4,27 +4,6 @@ import (
 	"fmt"
 )
 
-func dumpHps(label string, hps []int, maxhps []int) {
-	fmt.Printf("[%8s]:", label)
-	for i, hp := range hps {
-		var flag string
-		if maxhps[i+1] < 0 {
-			fmt.Printf(" ---/--- ")
-			continue
-		} else if hp > (maxhps[i+1] * 3 / 4) {
-			flag = " "
-		} else if hp > (maxhps[i+1] / 2) {
-			flag = "-"
-		} else if hp > (maxhps[i+1] / 4) {
-			flag = "="
-		} else {
-			flag = "!"
-		}
-		fmt.Printf(" %3d/%3d%s", hp, maxhps[i+1], flag)
-	}
-	fmt.Printf("\n")
-}
-
 type RankParams struct {
 	label      string
 	rank       string

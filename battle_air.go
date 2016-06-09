@@ -62,7 +62,7 @@ type Kouku struct {
 	ApiStage3Combined Stage3 `json:"api_stage3_combined"`
 }
 
-func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
+func (kouku Kouku) calcKoukuDamage(label string, dmg Damage) {
 	fmt.Printf("[%7s0]: %-5s", label, kouku.ApiStage1.ApiDispSeiku)
 	fmt.Printf("%10s / %10s / Touch\n", "All", "Bombers")
 	fmt.Printf("            Friend %3d => %3d / %3d => %3d / %s\n",
@@ -75,16 +75,16 @@ func (kouku Kouku) calcKoukuDamage(label string, hps1 []int, hps2 []int) {
 		kouku.ApiStage1.ApiTouchPlane[1])
 	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
-		hps1[i] -= int(v)
+		dmg.deck[0].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
-	if hps2 == nil {
+	if dmg.deck[1].now == nil {
 		return
 	}
 	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
-		hps2[i] -= int(v)
+		dmg.deck[1].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")

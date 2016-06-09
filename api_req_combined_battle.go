@@ -10,10 +10,10 @@ type OpeningAtack struct {
 	ApiFdam []float64 `json:"api_fdam"`
 }
 
-func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, hps []int) {
+func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, dmg Damage, deck int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range openingAtack.ApiFdam[1:] {
-		hps[i] -= int(v)
+		dmg.deck[deck].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
@@ -25,7 +25,7 @@ type Hougeki struct {
 	ApiDfList []interface{} `json:"api_df_list"`
 }
 
-func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
+func (hougeki Hougeki) calcHougekiDamage(label string, dmg Damage, deck int) {
 	const leftMargin = "                |"
 	fmt.Printf("[%8s]:\n", label)
 	prevLeftSide := false
@@ -34,7 +34,7 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 			continue
 		}
 		margin := ""
-		if at > len(hps) {
+		if at >= len(dmg.deck[deck].dmg) {
 			if !prevLeftSide {
 				margin = leftMargin
 			} else {
@@ -68,17 +68,17 @@ func (hougeki Hougeki) calcHougekiDamage(label string, hps []int) {
 		for i, v := range target {
 			if i > 0 {
 				fmt.Printf("\n")
-				if at > len(hps) {
+				if at >= len(dmg.deck[deck].dmg) {
 					fmt.Printf("%s", leftMargin)
 				}
 				fmt.Printf("      ")
 			}
 			fmt.Printf(" %2d [%3d]", v, damage[i])
-			if v > 0 && v <= len(hps) {
-				hps[v-1] -= damage[i]
+			if v > 0 && v < len(dmg.deck[deck].dmg) {
+				dmg.deck[deck].dmg[v] += damage[i]
 			}
 		}
-		if at > len(hps) {
+		if at >= len(dmg.deck[deck].dmg) {
 			fmt.Printf("\n")
 			prevLeftSide = false
 		} else {
@@ -94,10 +94,10 @@ type Raigeki struct {
 	ApiFdam []float64 `json:"api_fdam"`
 }
 
-func (raigeki Raigeki) calcRaigekiDamage(label string, hps []int) {
+func (raigeki Raigeki) calcRaigekiDamage(label string, dmg Damage, deck int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range raigeki.ApiFdam[1:] {
-		hps[i] -= int(v)
+		dmg.deck[deck].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
@@ -160,33 +160,32 @@ func handleApiReqCombinedBattleBattle(data []byte) error {
 
 	currentDeckId, _ = strconv.Atoi(v.ApiData.ApiDeckId)
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
-		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
-		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", deck2_hps)
+		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[0] == 1 {
-		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", deck2_hps)
+		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[1] == 1 {
-		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", deck2_hps)
+		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[2] == 1 {
-		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", deck1_hps)
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki2", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
-		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", deck1_hps)
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki3", damage, 0)
 	}
 
-	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
-	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+	damage.dumpHps()
 
 	return err
 }
@@ -200,33 +199,32 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 
 	currentDeckId, _ = strconv.Atoi(v.ApiData.ApiDeckId)
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
-		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
-		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", deck2_hps)
+		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[0] == 1 {
-		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", deck1_hps)
+		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[1] == 1 {
-		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", deck1_hps)
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki2", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[2] == 1 {
-		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", deck2_hps)
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki3", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
-		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", deck2_hps)
+		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", damage, 1)
 	}
 
-	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
-	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+	damage.dumpHps()
 
 	return err
 }
@@ -257,18 +255,17 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 
 	currentDeckId, _ = strconv.Atoi(v.ApiData.ApiDeckId)
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
-		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", deck1_hps, deck2_hps)
+		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
 	}
 
-	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
-	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+	damage.dumpHps()
 
 	return err
 }
@@ -297,15 +294,14 @@ func handleApiReqCombinedBattleMidnightBattle(data []byte) error {
 
 	currentDeckId, _ = strconv.Atoi(v.ApiData.ApiDeckId)
 	shipData.dumpShipNames("Enemy", v.ApiData.ApiShipKe, true)
-	enemy_size := len(v.ApiData.ApiShipKe) - 1
 
-	deck1_hps := v.ApiData.ApiNowhps[1 : len(v.ApiData.ApiNowhps)-enemy_size]
-	deck2_hps := v.ApiData.ApiNowhpsCombined[1:]
+	var damage Damage
+	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
+	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
-	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", deck2_hps)
+	v.ApiData.ApiHougeki.calcHougekiDamage("Hougeki", damage, 1)
 
-	dumpHps("Deck1", deck1_hps, v.ApiData.ApiMaxhps)
-	dumpHps("Deck2", deck2_hps, v.ApiData.ApiMaxhpsCombined)
+	damage.dumpHps()
 
 	return err
 }
