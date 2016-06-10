@@ -67,6 +67,7 @@ func (d Damage) dumpHps() {
 	if d.deck[1].now != nil {
 		d.deck[1].dumpHps()
 	}
+	d.enemy.dumpHps()
 }
 
 func dumpHps(label string, hps []int, maxhps []int) {
