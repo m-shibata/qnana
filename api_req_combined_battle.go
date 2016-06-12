@@ -8,12 +8,17 @@ import (
 
 type OpeningAtack struct {
 	ApiFdam []float64 `json:"api_fdam"`
+	ApiEdam []float64 `json:"api_edam"`
 }
 
 func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, dmg Damage, deck int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range openingAtack.ApiFdam[1:] {
 		dmg.deck[deck].dmg[i+1] += int(v)
+		fmt.Printf(" %3d", int(v))
+	}
+	for i, v := range openingAtack.ApiEdam[1:] {
+		dmg.enemy.dmg[i] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
@@ -74,8 +79,12 @@ func (hougeki Hougeki) calcHougekiDamage(label string, dmg Damage, deck int) {
 				fmt.Printf("      ")
 			}
 			fmt.Printf(" %2d [%3d]", v, damage[i])
-			if v > 0 && v < len(dmg.deck[deck].dmg) {
-				dmg.deck[deck].dmg[v] += damage[i]
+			if v > 0 {
+				if v < len(dmg.deck[deck].dmg) {
+					dmg.deck[deck].dmg[v] += damage[i]
+				} else {
+					dmg.enemy.dmg[v-len(dmg.deck[deck].dmg)] += damage[i]
+				}
 			}
 		}
 		if at >= len(dmg.deck[deck].dmg) {
@@ -92,12 +101,17 @@ func (hougeki Hougeki) calcHougekiDamage(label string, dmg Damage, deck int) {
 
 type Raigeki struct {
 	ApiFdam []float64 `json:"api_fdam"`
+	ApiEdam []float64 `json:"api_edam"`
 }
 
 func (raigeki Raigeki) calcRaigekiDamage(label string, dmg Damage, deck int) {
 	fmt.Printf("[%8s]:", label)
 	for i, v := range raigeki.ApiFdam[1:] {
 		dmg.deck[deck].dmg[i+1] += int(v)
+		fmt.Printf(" %3d", int(v))
+	}
+	for i, v := range raigeki.ApiEdam[1:] {
+		dmg.enemy.dmg[i] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")

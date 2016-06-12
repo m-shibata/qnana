@@ -53,6 +53,7 @@ type Stage2 struct {
 
 type Stage3 struct {
 	ApiFdam []float64 `json:"api_fdam"`
+	ApiEdam []float64 `json:"api_edam"`
 }
 
 type Kouku struct {
@@ -78,9 +79,8 @@ func (kouku Kouku) calcKoukuDamage(label string, dmg Damage) {
 		dmg.deck[0].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
-	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
-		dmg.deck[0].dmg[i+1] += int(v)
-		fmt.Printf(" %3d", int(v))
+	for i, v := range kouku.ApiStage3.ApiEdam[1:] {
+		dmg.enemy.dmg[i] += int(v)
 	}
 	fmt.Printf("\n")
 	if dmg.deck[1].now == nil {

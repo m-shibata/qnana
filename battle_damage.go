@@ -16,6 +16,9 @@ func (h Hps) dumpHps() {
 	for i, hp := range h.now {
 		var flag string
 		hp -= h.dmg[i]
+		if hp < 0 {
+			hp = 0
+		}
 		if h.max[i] < 0 {
 			if i != 0 {
 				fmt.Printf(" ---/--- ")
@@ -46,11 +49,11 @@ func (d *Damage) init(now []int, max []int, enemy []int) {
 	d.deck[0].now = now[:len(now)-enemy_size]
 	d.deck[0].max = max[:len(max)-enemy_size]
 	d.deck[0].dmg = make([]int, len(now)-enemy_size)
-	d.deck[0].label = "Deck"
+	d.deck[0].label = "FriendHP"
 	d.enemy.now = now[len(now)-enemy_size:]
 	d.enemy.max = max[len(max)-enemy_size:]
 	d.enemy.dmg = make([]int, enemy_size)
-	d.enemy.label = "Enemy"
+	d.enemy.label = "EnemyHP"
 	d.deck[1].now = nil
 }
 
@@ -58,8 +61,8 @@ func (d *Damage) initCombined(now []int, max []int) {
 	d.deck[1].now = now
 	d.deck[1].max = max
 	d.deck[1].dmg = make([]int, len(now))
-	d.deck[0].label = "Deck1"
-	d.deck[1].label = "Deck2"
+	d.deck[0].label = "Frnd1 HP"
+	d.deck[1].label = "Frnd2 HP"
 }
 
 func (d Damage) dumpHps() {
