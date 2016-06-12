@@ -47,8 +47,8 @@ func (d *Damage) init(now []int, max []int, enemy []int) {
 	d.deck[0].max = max[:len(max)-enemy_size]
 	d.deck[0].dmg = make([]int, len(now)-enemy_size)
 	d.deck[0].label = "Deck"
-	d.enemy.now = enemy[len(now)-enemy_size:]
-	d.enemy.max = enemy[len(max)-enemy_size:]
+	d.enemy.now = now[len(now)-enemy_size:]
+	d.enemy.max = max[len(max)-enemy_size:]
 	d.enemy.dmg = make([]int, enemy_size)
 	d.enemy.label = "Enemy"
 	d.deck[1].now = nil
