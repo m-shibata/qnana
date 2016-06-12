@@ -78,6 +78,10 @@ func (kouku Kouku) calcKoukuDamage(label string, dmg Damage) {
 		dmg.deck[0].dmg[i+1] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
+	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
+		dmg.deck[0].dmg[i+1] += int(v)
+		fmt.Printf(" %3d", int(v))
+	}
 	fmt.Printf("\n")
 	if dmg.deck[1].now == nil {
 		return

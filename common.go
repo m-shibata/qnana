@@ -20,7 +20,7 @@ func dumpRank(param RankParams) {
 
 	if param.mvp1 > 0 {
 		if len(decksData) < currentDeckId {
-			fmt.Printf(" / unknown deck")
+			fmt.Printf(" / unknown deck (%d)", currentDeckId)
 		} else if len(decksData[currentDeckId-1]) < param.mvp1 {
 			fmt.Printf(" / unknown")
 		} else {
