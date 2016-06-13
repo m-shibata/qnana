@@ -19,7 +19,6 @@ func (openingAtack OpeningAtack) calcOpeningAtackDamage(label string, dmg Damage
 	}
 	for i, v := range openingAtack.ApiEdam[1:] {
 		dmg.enemy.dmg[i] += int(v)
-		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 }
