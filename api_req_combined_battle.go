@@ -112,7 +112,6 @@ func (raigeki Raigeki) calcRaigekiDamage(label string, dmg Damage, deck int) {
 	}
 	for i, v := range raigeki.ApiEdam[1:] {
 		dmg.enemy.dmg[i] += int(v)
-		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")
 }
