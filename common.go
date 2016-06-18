@@ -40,7 +40,12 @@ func dumpExp(label string, bases [][]int, exp []int) {
 	fmt.Printf("[%8s]:", label)
 
 	for i, base := range bases {
-		remain := base[1] - base[0]
+		var remain int
+		if len(base) < 2 {
+			remain = 0
+		} else {
+			remain = base[1] - base[0]
+		}
 
 		if exp[i+1] == -1 {
 			fmt.Printf(" ----/%8d", remain)
