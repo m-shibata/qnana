@@ -1,0 +1,1008 @@
+{
+  "api_data": [
+    {
+      "api_furniture_id": 1,
+      "api_furniture_no": 0,
+      "api_furniture_type": 0,
+      "api_id": 1
+    },
+    {
+      "api_furniture_id": 3,
+      "api_furniture_no": 2,
+      "api_furniture_type": 0,
+      "api_id": 3
+    },
+    {
+      "api_furniture_id": 4,
+      "api_furniture_no": 3,
+      "api_furniture_type": 0,
+      "api_id": 4
+    },
+    {
+      "api_furniture_id": 7,
+      "api_furniture_no": 6,
+      "api_furniture_type": 0,
+      "api_id": 7
+    },
+    {
+      "api_furniture_id": 9,
+      "api_furniture_no": 8,
+      "api_furniture_type": 0,
+      "api_id": 9
+    },
+    {
+      "api_furniture_id": 12,
+      "api_furniture_no": 11,
+      "api_furniture_type": 0,
+      "api_id": 12
+    },
+    {
+      "api_furniture_id": 17,
+      "api_furniture_no": 16,
+      "api_furniture_type": 0,
+      "api_id": 17
+    },
+    {
+      "api_furniture_id": 21,
+      "api_furniture_no": 20,
+      "api_furniture_type": 0,
+      "api_id": 21
+    },
+    {
+      "api_furniture_id": 22,
+      "api_furniture_no": 21,
+      "api_furniture_type": 0,
+      "api_id": 22
+    },
+    {
+      "api_furniture_id": 24,
+      "api_furniture_no": 23,
+      "api_furniture_type": 0,
+      "api_id": 24
+    },
+    {
+      "api_furniture_id": 25,
+      "api_furniture_no": 24,
+      "api_furniture_type": 0,
+      "api_id": 25
+    },
+    {
+      "api_furniture_id": 33,
+      "api_furniture_no": 32,
+      "api_furniture_type": 0,
+      "api_id": 33
+    },
+    {
+      "api_furniture_id": 34,
+      "api_furniture_no": 33,
+      "api_furniture_type": 0,
+      "api_id": 34
+    },
+    {
+      "api_furniture_id": 35,
+      "api_furniture_no": 34,
+      "api_furniture_type": 0,
+      "api_id": 35
+    },
+    {
+      "api_furniture_id": 37,
+      "api_furniture_no": 36,
+      "api_furniture_type": 0,
+      "api_id": 37
+    },
+    {
+      "api_furniture_id": 38,
+      "api_furniture_no": 0,
+      "api_furniture_type": 1,
+      "api_id": 38
+    },
+    {
+      "api_furniture_id": 39,
+      "api_furniture_no": 1,
+      "api_furniture_type": 1,
+      "api_id": 39
+    },
+    {
+      "api_furniture_id": 40,
+      "api_furniture_no": 2,
+      "api_furniture_type": 1,
+      "api_id": 40
+    },
+    {
+      "api_furniture_id": 42,
+      "api_furniture_no": 4,
+      "api_furniture_type": 1,
+      "api_id": 42
+    },
+    {
+      "api_furniture_id": 44,
+      "api_furniture_no": 6,
+      "api_furniture_type": 1,
+      "api_id": 44
+    },
+    {
+      "api_furniture_id": 46,
+      "api_furniture_no": 8,
+      "api_furniture_type": 1,
+      "api_id": 46
+    },
+    {
+      "api_furniture_id": 47,
+      "api_furniture_no": 9,
+      "api_furniture_type": 1,
+      "api_id": 47
+    },
+    {
+      "api_furniture_id": 49,
+      "api_furniture_no": 11,
+      "api_furniture_type": 1,
+      "api_id": 49
+    },
+    {
+      "api_furniture_id": 51,
+      "api_furniture_no": 13,
+      "api_furniture_type": 1,
+      "api_id": 51
+    },
+    {
+      "api_furniture_id": 52,
+      "api_furniture_no": 14,
+      "api_furniture_type": 1,
+      "api_id": 52
+    },
+    {
+      "api_furniture_id": 55,
+      "api_furniture_no": 17,
+      "api_furniture_type": 1,
+      "api_id": 55
+    },
+    {
+      "api_furniture_id": 56,
+      "api_furniture_no": 18,
+      "api_furniture_type": 1,
+      "api_id": 56
+    },
+    {
+      "api_furniture_id": 58,
+      "api_furniture_no": 20,
+      "api_furniture_type": 1,
+      "api_id": 58
+    },
+    {
+      "api_furniture_id": 59,
+      "api_furniture_no": 21,
+      "api_furniture_type": 1,
+      "api_id": 59
+    },
+    {
+      "api_furniture_id": 60,
+      "api_furniture_no": 22,
+      "api_furniture_type": 1,
+      "api_id": 60
+    },
+    {
+      "api_furniture_id": 61,
+      "api_furniture_no": 23,
+      "api_furniture_type": 1,
+      "api_id": 61
+    },
+    {
+      "api_furniture_id": 63,
+      "api_furniture_no": 25,
+      "api_furniture_type": 1,
+      "api_id": 63
+    },
+    {
+      "api_furniture_id": 64,
+      "api_furniture_no": 26,
+      "api_furniture_type": 1,
+      "api_id": 64
+    },
+    {
+      "api_furniture_id": 65,
+      "api_furniture_no": 27,
+      "api_furniture_type": 1,
+      "api_id": 65
+    },
+    {
+      "api_furniture_id": 67,
+      "api_furniture_no": 29,
+      "api_furniture_type": 1,
+      "api_id": 67
+    },
+    {
+      "api_furniture_id": 68,
+      "api_furniture_no": 30,
+      "api_furniture_type": 1,
+      "api_id": 68
+    },
+    {
+      "api_furniture_id": 69,
+      "api_furniture_no": 31,
+      "api_furniture_type": 1,
+      "api_id": 69
+    },
+    {
+      "api_furniture_id": 71,
+      "api_furniture_no": 33,
+      "api_furniture_type": 1,
+      "api_id": 71
+    },
+    {
+      "api_furniture_id": 72,
+      "api_furniture_no": 0,
+      "api_furniture_type": 2,
+      "api_id": 72
+    },
+    {
+      "api_furniture_id": 73,
+      "api_furniture_no": 1,
+      "api_furniture_type": 2,
+      "api_id": 73
+    },
+    {
+      "api_furniture_id": 74,
+      "api_furniture_no": 2,
+      "api_furniture_type": 2,
+      "api_id": 74
+    },
+    {
+      "api_furniture_id": 75,
+      "api_furniture_no": 3,
+      "api_furniture_type": 2,
+      "api_id": 75
+    },
+    {
+      "api_furniture_id": 77,
+      "api_furniture_no": 5,
+      "api_furniture_type": 2,
+      "api_id": 77
+    },
+    {
+      "api_furniture_id": 78,
+      "api_furniture_no": 6,
+      "api_furniture_type": 2,
+      "api_id": 78
+    },
+    {
+      "api_furniture_id": 80,
+      "api_furniture_no": 8,
+      "api_furniture_type": 2,
+      "api_id": 80
+    },
+    {
+      "api_furniture_id": 81,
+      "api_furniture_no": 9,
+      "api_furniture_type": 2,
+      "api_id": 81
+    },
+    {
+      "api_furniture_id": 83,
+      "api_furniture_no": 11,
+      "api_furniture_type": 2,
+      "api_id": 83
+    },
+    {
+      "api_furniture_id": 85,
+      "api_furniture_no": 13,
+      "api_furniture_type": 2,
+      "api_id": 85
+    },
+    {
+      "api_furniture_id": 88,
+      "api_furniture_no": 16,
+      "api_furniture_type": 2,
+      "api_id": 88
+    },
+    {
+      "api_furniture_id": 96,
+      "api_furniture_no": 24,
+      "api_furniture_type": 2,
+      "api_id": 96
+    },
+    {
+      "api_furniture_id": 97,
+      "api_furniture_no": 25,
+      "api_furniture_type": 2,
+      "api_id": 97
+    },
+    {
+      "api_furniture_id": 102,
+      "api_furniture_no": 0,
+      "api_furniture_type": 3,
+      "api_id": 102
+    },
+    {
+      "api_furniture_id": 105,
+      "api_furniture_no": 3,
+      "api_furniture_type": 3,
+      "api_id": 105
+    },
+    {
+      "api_furniture_id": 110,
+      "api_furniture_no": 8,
+      "api_furniture_type": 3,
+      "api_id": 110
+    },
+    {
+      "api_furniture_id": 112,
+      "api_furniture_no": 10,
+      "api_furniture_type": 3,
+      "api_id": 112
+    },
+    {
+      "api_furniture_id": 113,
+      "api_furniture_no": 11,
+      "api_furniture_type": 3,
+      "api_id": 113
+    },
+    {
+      "api_furniture_id": 114,
+      "api_furniture_no": 12,
+      "api_furniture_type": 3,
+      "api_id": 114
+    },
+    {
+      "api_furniture_id": 115,
+      "api_furniture_no": 13,
+      "api_furniture_type": 3,
+      "api_id": 115
+    },
+    {
+      "api_furniture_id": 118,
+      "api_furniture_no": 16,
+      "api_furniture_type": 3,
+      "api_id": 118
+    },
+    {
+      "api_furniture_id": 120,
+      "api_furniture_no": 18,
+      "api_furniture_type": 3,
+      "api_id": 120
+    },
+    {
+      "api_furniture_id": 123,
+      "api_furniture_no": 21,
+      "api_furniture_type": 3,
+      "api_id": 123
+    },
+    {
+      "api_furniture_id": 124,
+      "api_furniture_no": 22,
+      "api_furniture_type": 3,
+      "api_id": 124
+    },
+    {
+      "api_furniture_id": 125,
+      "api_furniture_no": 23,
+      "api_furniture_type": 3,
+      "api_id": 125
+    },
+    {
+      "api_furniture_id": 126,
+      "api_furniture_no": 24,
+      "api_furniture_type": 3,
+      "api_id": 126
+    },
+    {
+      "api_furniture_id": 127,
+      "api_furniture_no": 25,
+      "api_furniture_type": 3,
+      "api_id": 127
+    },
+    {
+      "api_furniture_id": 128,
+      "api_furniture_no": 26,
+      "api_furniture_type": 3,
+      "api_id": 128
+    },
+    {
+      "api_furniture_id": 130,
+      "api_furniture_no": 28,
+      "api_furniture_type": 3,
+      "api_id": 130
+    },
+    {
+      "api_furniture_id": 132,
+      "api_furniture_no": 30,
+      "api_furniture_type": 3,
+      "api_id": 132
+    },
+    {
+      "api_furniture_id": 133,
+      "api_furniture_no": 0,
+      "api_furniture_type": 4,
+      "api_id": 133
+    },
+    {
+      "api_furniture_id": 135,
+      "api_furniture_no": 2,
+      "api_furniture_type": 4,
+      "api_id": 135
+    },
+    {
+      "api_furniture_id": 136,
+      "api_furniture_no": 3,
+      "api_furniture_type": 4,
+      "api_id": 136
+    },
+    {
+      "api_furniture_id": 137,
+      "api_furniture_no": 4,
+      "api_furniture_type": 4,
+      "api_id": 137
+    },
+    {
+      "api_furniture_id": 139,
+      "api_furniture_no": 6,
+      "api_furniture_type": 4,
+      "api_id": 139
+    },
+    {
+      "api_furniture_id": 140,
+      "api_furniture_no": 7,
+      "api_furniture_type": 4,
+      "api_id": 140
+    },
+    {
+      "api_furniture_id": 141,
+      "api_furniture_no": 8,
+      "api_furniture_type": 4,
+      "api_id": 141
+    },
+    {
+      "api_furniture_id": 142,
+      "api_furniture_no": 9,
+      "api_furniture_type": 4,
+      "api_id": 142
+    },
+    {
+      "api_furniture_id": 143,
+      "api_furniture_no": 10,
+      "api_furniture_type": 4,
+      "api_id": 143
+    },
+    {
+      "api_furniture_id": 144,
+      "api_furniture_no": 11,
+      "api_furniture_type": 4,
+      "api_id": 144
+    },
+    {
+      "api_furniture_id": 146,
+      "api_furniture_no": 13,
+      "api_furniture_type": 4,
+      "api_id": 146
+    },
+    {
+      "api_furniture_id": 149,
+      "api_furniture_no": 16,
+      "api_furniture_type": 4,
+      "api_id": 149
+    },
+    {
+      "api_furniture_id": 151,
+      "api_furniture_no": 18,
+      "api_furniture_type": 4,
+      "api_id": 151
+    },
+    {
+      "api_furniture_id": 152,
+      "api_furniture_no": 19,
+      "api_furniture_type": 4,
+      "api_id": 152
+    },
+    {
+      "api_furniture_id": 154,
+      "api_furniture_no": 21,
+      "api_furniture_type": 4,
+      "api_id": 154
+    },
+    {
+      "api_furniture_id": 155,
+      "api_furniture_no": 22,
+      "api_furniture_type": 4,
+      "api_id": 155
+    },
+    {
+      "api_furniture_id": 156,
+      "api_furniture_no": 23,
+      "api_furniture_type": 4,
+      "api_id": 156
+    },
+    {
+      "api_furniture_id": 157,
+      "api_furniture_no": 24,
+      "api_furniture_type": 4,
+      "api_id": 157
+    },
+    {
+      "api_furniture_id": 159,
+      "api_furniture_no": 26,
+      "api_furniture_type": 4,
+      "api_id": 159
+    },
+    {
+      "api_furniture_id": 164,
+      "api_furniture_no": 0,
+      "api_furniture_type": 5,
+      "api_id": 164
+    },
+    {
+      "api_furniture_id": 166,
+      "api_furniture_no": 2,
+      "api_furniture_type": 5,
+      "api_id": 166
+    },
+    {
+      "api_furniture_id": 168,
+      "api_furniture_no": 4,
+      "api_furniture_type": 5,
+      "api_id": 168
+    },
+    {
+      "api_furniture_id": 170,
+      "api_furniture_no": 6,
+      "api_furniture_type": 5,
+      "api_id": 170
+    },
+    {
+      "api_furniture_id": 172,
+      "api_furniture_no": 8,
+      "api_furniture_type": 5,
+      "api_id": 172
+    },
+    {
+      "api_furniture_id": 174,
+      "api_furniture_no": 10,
+      "api_furniture_type": 5,
+      "api_id": 174
+    },
+    {
+      "api_furniture_id": 181,
+      "api_furniture_no": 17,
+      "api_furniture_type": 5,
+      "api_id": 181
+    },
+    {
+      "api_furniture_id": 183,
+      "api_furniture_no": 19,
+      "api_furniture_type": 5,
+      "api_id": 183
+    },
+    {
+      "api_furniture_id": 185,
+      "api_furniture_no": 21,
+      "api_furniture_type": 5,
+      "api_id": 185
+    },
+    {
+      "api_furniture_id": 187,
+      "api_furniture_no": 23,
+      "api_furniture_type": 5,
+      "api_id": 187
+    },
+    {
+      "api_furniture_id": 196,
+      "api_furniture_no": 32,
+      "api_furniture_type": 5,
+      "api_id": 196
+    },
+    {
+      "api_furniture_id": 197,
+      "api_furniture_no": 33,
+      "api_furniture_type": 5,
+      "api_id": 197
+    },
+    {
+      "api_furniture_id": 200,
+      "api_furniture_no": 36,
+      "api_furniture_type": 5,
+      "api_id": 200
+    },
+    {
+      "api_furniture_id": 202,
+      "api_furniture_no": 38,
+      "api_furniture_type": 5,
+      "api_id": 202
+    },
+    {
+      "api_furniture_id": 203,
+      "api_furniture_no": 31,
+      "api_furniture_type": 3,
+      "api_id": 203
+    },
+    {
+      "api_furniture_id": 204,
+      "api_furniture_no": 32,
+      "api_furniture_type": 3,
+      "api_id": 204
+    },
+    {
+      "api_furniture_id": 207,
+      "api_furniture_no": 39,
+      "api_furniture_type": 5,
+      "api_id": 207
+    },
+    {
+      "api_furniture_id": 208,
+      "api_furniture_no": 40,
+      "api_furniture_type": 5,
+      "api_id": 208
+    },
+    {
+      "api_furniture_id": 209,
+      "api_furniture_no": 30,
+      "api_furniture_type": 2,
+      "api_id": 209
+    },
+    {
+      "api_furniture_id": 210,
+      "api_furniture_no": 31,
+      "api_furniture_type": 2,
+      "api_id": 210
+    },
+    {
+      "api_furniture_id": 212,
+      "api_furniture_no": 31,
+      "api_furniture_type": 4,
+      "api_id": 212
+    },
+    {
+      "api_furniture_id": 214,
+      "api_furniture_no": 33,
+      "api_furniture_type": 4,
+      "api_id": 214
+    },
+    {
+      "api_furniture_id": 215,
+      "api_furniture_no": 33,
+      "api_furniture_type": 2,
+      "api_id": 215
+    },
+    {
+      "api_furniture_id": 216,
+      "api_furniture_no": 41,
+      "api_furniture_type": 5,
+      "api_id": 216
+    },
+    {
+      "api_furniture_id": 217,
+      "api_furniture_no": 42,
+      "api_furniture_type": 5,
+      "api_id": 217
+    },
+    {
+      "api_furniture_id": 220,
+      "api_furniture_no": 35,
+      "api_furniture_type": 3,
+      "api_id": 220
+    },
+    {
+      "api_furniture_id": 221,
+      "api_furniture_no": 36,
+      "api_furniture_type": 3,
+      "api_id": 221
+    },
+    {
+      "api_furniture_id": 223,
+      "api_furniture_no": 37,
+      "api_furniture_type": 3,
+      "api_id": 223
+    },
+    {
+      "api_furniture_id": 225,
+      "api_furniture_no": 45,
+      "api_furniture_type": 5,
+      "api_id": 225
+    },
+    {
+      "api_furniture_id": 226,
+      "api_furniture_no": 38,
+      "api_furniture_type": 3,
+      "api_id": 226
+    },
+    {
+      "api_furniture_id": 227,
+      "api_furniture_no": 39,
+      "api_furniture_type": 3,
+      "api_id": 227
+    },
+    {
+      "api_furniture_id": 229,
+      "api_furniture_no": 35,
+      "api_furniture_type": 4,
+      "api_id": 229
+    },
+    {
+      "api_furniture_id": 230,
+      "api_furniture_no": 35,
+      "api_furniture_type": 2,
+      "api_id": 230
+    },
+    {
+      "api_furniture_id": 231,
+      "api_furniture_no": 40,
+      "api_furniture_type": 3,
+      "api_id": 231
+    },
+    {
+      "api_furniture_id": 232,
+      "api_furniture_no": 47,
+      "api_furniture_type": 5,
+      "api_id": 232
+    },
+    {
+      "api_furniture_id": 233,
+      "api_furniture_no": 48,
+      "api_furniture_type": 5,
+      "api_id": 233
+    },
+    {
+      "api_furniture_id": 234,
+      "api_furniture_no": 36,
+      "api_furniture_type": 4,
+      "api_id": 234
+    },
+    {
+      "api_furniture_id": 235,
+      "api_furniture_no": 41,
+      "api_furniture_type": 3,
+      "api_id": 235
+    },
+    {
+      "api_furniture_id": 236,
+      "api_furniture_no": 34,
+      "api_furniture_type": 1,
+      "api_id": 236
+    },
+    {
+      "api_furniture_id": 238,
+      "api_furniture_no": 36,
+      "api_furniture_type": 1,
+      "api_id": 238
+    },
+    {
+      "api_furniture_id": 239,
+      "api_furniture_no": 37,
+      "api_furniture_type": 4,
+      "api_id": 239
+    },
+    {
+      "api_furniture_id": 240,
+      "api_furniture_no": 49,
+      "api_furniture_type": 5,
+      "api_id": 240
+    },
+    {
+      "api_furniture_id": 241,
+      "api_furniture_no": 42,
+      "api_furniture_type": 3,
+      "api_id": 241
+    },
+    {
+      "api_furniture_id": 242,
+      "api_furniture_no": 43,
+      "api_furniture_type": 3,
+      "api_id": 242
+    },
+    {
+      "api_furniture_id": 243,
+      "api_furniture_no": 37,
+      "api_furniture_type": 1,
+      "api_id": 243
+    },
+    {
+      "api_furniture_id": 245,
+      "api_furniture_no": 50,
+      "api_furniture_type": 5,
+      "api_id": 245
+    },
+    {
+      "api_furniture_id": 246,
+      "api_furniture_no": 38,
+      "api_furniture_type": 4,
+      "api_id": 246
+    },
+    {
+      "api_furniture_id": 247,
+      "api_furniture_no": 44,
+      "api_furniture_type": 3,
+      "api_id": 247
+    },
+    {
+      "api_furniture_id": 257,
+      "api_furniture_no": 53,
+      "api_furniture_type": 5,
+      "api_id": 257
+    },
+    {
+      "api_furniture_id": 259,
+      "api_furniture_no": 47,
+      "api_furniture_type": 3,
+      "api_id": 259
+    },
+    {
+      "api_furniture_id": 260,
+      "api_furniture_no": 48,
+      "api_furniture_type": 3,
+      "api_id": 260
+    },
+    {
+      "api_furniture_id": 262,
+      "api_furniture_no": 55,
+      "api_furniture_type": 5,
+      "api_id": 262
+    },
+    {
+      "api_furniture_id": 264,
+      "api_furniture_no": 50,
+      "api_furniture_type": 3,
+      "api_id": 264
+    },
+    {
+      "api_furniture_id": 265,
+      "api_furniture_no": 51,
+      "api_furniture_type": 3,
+      "api_id": 265
+    },
+    {
+      "api_furniture_id": 266,
+      "api_furniture_no": 52,
+      "api_furniture_type": 3,
+      "api_id": 266
+    },
+    {
+      "api_furniture_id": 269,
+      "api_furniture_no": 54,
+      "api_furniture_type": 3,
+      "api_id": 269
+    },
+    {
+      "api_furniture_id": 270,
+      "api_furniture_no": 55,
+      "api_furniture_type": 3,
+      "api_id": 270
+    },
+    {
+      "api_furniture_id": 272,
+      "api_furniture_no": 39,
+      "api_furniture_type": 2,
+      "api_id": 272
+    },
+    {
+      "api_furniture_id": 276,
+      "api_furniture_no": 41,
+      "api_furniture_type": 4,
+      "api_id": 276
+    },
+    {
+      "api_furniture_id": 277,
+      "api_furniture_no": 58,
+      "api_furniture_type": 3,
+      "api_id": 277
+    },
+    {
+      "api_furniture_id": 279,
+      "api_furniture_no": 60,
+      "api_furniture_type": 5,
+      "api_id": 279
+    },
+    {
+      "api_furniture_id": 280,
+      "api_furniture_no": 59,
+      "api_furniture_type": 3,
+      "api_id": 280
+    },
+    {
+      "api_furniture_id": 281,
+      "api_furniture_no": 38,
+      "api_furniture_type": 0,
+      "api_id": 281
+    },
+    {
+      "api_furniture_id": 282,
+      "api_furniture_no": 39,
+      "api_furniture_type": 1,
+      "api_id": 282
+    },
+    {
+      "api_furniture_id": 283,
+      "api_furniture_no": 40,
+      "api_furniture_type": 2,
+      "api_id": 283
+    },
+    {
+      "api_furniture_id": 284,
+      "api_furniture_no": 60,
+      "api_furniture_type": 3,
+      "api_id": 284
+    },
+    {
+      "api_furniture_id": 285,
+      "api_furniture_no": 61,
+      "api_furniture_type": 5,
+      "api_id": 285
+    },
+    {
+      "api_furniture_id": 286,
+      "api_furniture_no": 61,
+      "api_furniture_type": 3,
+      "api_id": 286
+    },
+    {
+      "api_furniture_id": 287,
+      "api_furniture_no": 40,
+      "api_furniture_type": 1,
+      "api_id": 287
+    },
+    {
+      "api_furniture_id": 288,
+      "api_furniture_no": 41,
+      "api_furniture_type": 2,
+      "api_id": 288
+    },
+    {
+      "api_furniture_id": 289,
+      "api_furniture_no": 62,
+      "api_furniture_type": 5,
+      "api_id": 289
+    },
+    {
+      "api_furniture_id": 292,
+      "api_furniture_no": 41,
+      "api_furniture_type": 1,
+      "api_id": 292
+    },
+    {
+      "api_furniture_id": 293,
+      "api_furniture_no": 39,
+      "api_furniture_type": 0,
+      "api_id": 293
+    },
+    {
+      "api_furniture_id": 294,
+      "api_furniture_no": 42,
+      "api_furniture_type": 1,
+      "api_id": 294
+    },
+    {
+      "api_furniture_id": 295,
+      "api_furniture_no": 40,
+      "api_furniture_type": 0,
+      "api_id": 295
+    },
+    {
+      "api_furniture_id": 296,
+      "api_furniture_no": 43,
+      "api_furniture_type": 1,
+      "api_id": 296
+    },
+    {
+      "api_furniture_id": 297,
+      "api_furniture_no": 41,
+      "api_furniture_type": 0,
+      "api_id": 297
+    },
+    {
+      "api_furniture_id": 298,
+      "api_furniture_no": 62,
+      "api_furniture_type": 3,
+      "api_id": 298
+    },
+    {
+      "api_furniture_id": 299,
+      "api_furniture_no": 63,
+      "api_furniture_type": 3,
+      "api_id": 299
+    },
+    {
+      "api_furniture_id": 301,
+      "api_furniture_no": 43,
+      "api_furniture_type": 4,
+      "api_id": 301
+    }
+  ],
+  "api_result": 1,
+  "api_result_msg": "成功"
+}

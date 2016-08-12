@@ -1,50 +1,57 @@
 {
   "api_data": {
-    "api_dests": 3,
+    "api_dests": 6,
     "api_destsf": 1,
     "api_enemy_info": {
-      "api_deck_name": "敵主力艦隊",
+      "api_deck_name": "敵強襲揚陸艦隊",
       "api_level": "",
       "api_rank": ""
     },
     "api_first_clear": 0,
-    "api_get_base_exp": 30,
+    "api_get_base_exp": 200,
     "api_get_eventflag": 0,
     "api_get_exmap_rate": 0,
     "api_get_exmap_useitem_id": 0,
-    "api_get_exp": 20,
+    "api_get_exp": 80,
     "api_get_exp_lvup": [
       [
-        1e+06
+        177096,
+        181500
       ],
       [
-        36,
-        100
+        444691,
+        458000
       ],
       [
-        36,
-        100
+        462926,
+        474500
+      ],
+      [
+        498096,
+        509000
+      ],
+      [
+        483551,
+        491500
+      ],
+      [
+        467912,
+        474500
       ]
     ],
     "api_get_flag": [
       0,
-      1,
+      0,
       0
     ],
-    "api_get_ship": {
-      "api_ship_getmes": "初めまして、ねのひ、だよぉ！\u003cbr\u003e艦名、読みづらくなんか、ないよね？ね？",
-      "api_ship_id": 39,
-      "api_ship_name": "子日",
-      "api_ship_type": "駆逐艦"
-    },
     "api_get_ship_exp": [
       -1,
-      108,
-      36,
-      36,
-      -1,
-      -1,
-      -1
+      360,
+      240,
+      240,
+      480,
+      240,
+      240
     ],
     "api_lost_flag": [
       -1,
@@ -56,19 +63,19 @@
       0
     ],
     "api_mapcell_incentive": 0,
-    "api_member_exp": 2.299566e+06,
+    "api_member_exp": 2.512038e+06,
     "api_member_lv": 103,
-    "api_mvp": 1,
-    "api_quest_level": 1,
-    "api_quest_name": "鎮守府正面海域",
+    "api_mvp": 4,
+    "api_quest_level": 5,
+    "api_quest_name": "東部オリョール海",
     "api_ship_id": [
       -1,
-      505,
-      502,
-      502,
-      -1,
-      -1,
-      -1
+      509,
+      510,
+      510,
+      506,
+      513,
+      513
     ],
     "api_win_rank": "S"
   },
