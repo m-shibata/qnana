@@ -205,7 +205,6 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_req_sortie/battle":
 				err = handleApiReqSortieBattle(b)
 			case "/kcsapi/api_req_sortie/battleresult":
-				err = handleGeneral(req.url, b)
 				err = handleApiReqSortieBattleresult(b)
 			case "/kcsapi/api_req_sortie/airbattle":
 				err = handleApiReqSortieAirbattle(b)

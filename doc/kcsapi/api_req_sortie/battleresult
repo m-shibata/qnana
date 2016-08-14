@@ -1,57 +1,62 @@
 {
   "api_data": {
-    "api_dests": 6,
-    "api_destsf": 1,
+    "api_dests": 5,
+    "api_destsf": 0,
     "api_enemy_info": {
-      "api_deck_name": "敵強襲揚陸艦隊",
+      "api_deck_name": "深海東洋艦隊 潜水司令母艦",
       "api_level": "",
       "api_rank": ""
     },
     "api_first_clear": 0,
-    "api_get_base_exp": 200,
-    "api_get_eventflag": 0,
+    "api_get_base_exp": 260,
     "api_get_exmap_rate": 0,
     "api_get_exmap_useitem_id": 0,
-    "api_get_exp": 80,
+    "api_get_exp": 150,
     "api_get_exp_lvup": [
       [
-        177096,
-        181500
+        401251,
+        411500
       ],
       [
-        444691,
+        563296,
+        564500
+      ],
+      [
+        387192,
+        397000
+      ],
+      [
+        447960,
         458000
       ],
       [
-        462926,
-        474500
+        293685,
+        296200
       ],
       [
-        498096,
-        509000
-      ],
-      [
-        483551,
-        491500
-      ],
-      [
-        467912,
-        474500
+        286705,
+        296200
       ]
     ],
     "api_get_flag": [
       0,
-      0,
+      1,
       0
     ],
+    "api_get_ship": {
+      "api_ship_getmes": "水上機母艦、千代田です。\u003cbr\u003e姉の千歳が、いつも迷惑かけてないですか？",
+      "api_ship_id": 103,
+      "api_ship_name": "千代田",
+      "api_ship_type": "水上機母艦"
+    },
     "api_get_ship_exp": [
       -1,
-      360,
-      240,
-      240,
-      480,
-      240,
-      240
+      390,
+      260,
+      260,
+      260,
+      260,
+      520
     ],
     "api_lost_flag": [
       -1,
@@ -63,21 +68,21 @@
       0
     ],
     "api_mapcell_incentive": 0,
-    "api_member_exp": 2.512038e+06,
+    "api_member_exp": 2.590937e+06,
     "api_member_lv": 103,
-    "api_mvp": 4,
-    "api_quest_level": 5,
-    "api_quest_name": "東部オリョール海",
+    "api_mvp": 6,
+    "api_quest_level": 6,
+    "api_quest_name": "南西海域 ブンタン沖",
     "api_ship_id": [
       -1,
-      509,
-      510,
-      510,
-      506,
-      513,
-      513
+      695,
+      535,
+      532,
+      530,
+      575,
+      575
     ],
-    "api_win_rank": "S"
+    "api_win_rank": "A"
   },
   "api_result": 1,
   "api_result_msg": "成功"
