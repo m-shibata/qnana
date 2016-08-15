@@ -5,20 +5,22 @@ import (
 )
 
 type ApiReqPracticeBattle struct {
-	ApiDockId       int          `json:"api_dock_id"`
-	ApiFormation    Formation    `json:"api_formation"`
-	ApiShipKe       []int        `json:"api_ship_ke"`
-	ApiKouku        Kouku        `json:"api_kouku"`
-	ApiOpeningAtack OpeningAtack `json:"api_opening_atack"`
-	ApiHougeki1     Hougeki      `json:"api_hougeki1"`
-	ApiHougeki2     Hougeki      `json:"api_hougeki2"`
-	ApiHougeki3     Hougeki      `json:"api_hougeki3"`
-	ApiRaigeki      Raigeki      `json:"api_raigeki"`
-	ApiMaxhps       []int        `json:"api_maxhps"`
-	ApiNowhps       []int        `json:"api_nowhps"`
-	ApiStageFlag    []int        `json:"api_stage_flag"`
-	ApiOpeningFlag  int          `json:"api_opening_flag"`
-	ApiHouraiFlag   []int        `json:"api_hourai_flag"`
+	ApiDockId            int          `json:"api_dock_id"`
+	ApiFormation         Formation    `json:"api_formation"`
+	ApiShipKe            []int        `json:"api_ship_ke"`
+	ApiKouku             Kouku        `json:"api_kouku"`
+	ApiOpeningAtack      OpeningAtack `json:"api_opening_atack"`
+	ApiOpeningTaisen     Hougeki      `json:"api_opening_taisen"`
+	ApiHougeki1          Hougeki      `json:"api_hougeki1"`
+	ApiHougeki2          Hougeki      `json:"api_hougeki2"`
+	ApiHougeki3          Hougeki      `json:"api_hougeki3"`
+	ApiRaigeki           Raigeki      `json:"api_raigeki"`
+	ApiMaxhps            []int        `json:"api_maxhps"`
+	ApiNowhps            []int        `json:"api_nowhps"`
+	ApiStageFlag         []int        `json:"api_stage_flag"`
+	ApiOpeningFlag       int          `json:"api_opening_flag"`
+	ApiOpeningTaisenFlag int          `json:"api_opening_taisen_flag"`
+	ApiHouraiFlag        []int        `json:"api_hourai_flag"`
 }
 
 type KcsapiApiReqPracticeBattle struct {
@@ -43,6 +45,9 @@ func handleApiReqPracticeBattle(data []byte) error {
 	v.ApiData.ApiFormation.dumpFormation()
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
+	}
+	if v.ApiData.ApiOpeningTaisenFlag == 1 {
+		v.ApiData.ApiOpeningTaisen.calcHougekiDamage("Taisen", damage, 0)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
 		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 0)
