@@ -45,10 +45,11 @@ type Stage1 struct {
 }
 
 type Stage2 struct {
-	ApiECount     int `json:"api_e_count"`
-	ApiELostcount int `json:"api_e_lostcount"`
-	ApiFCount     int `json:"api_f_count"`
-	ApiFLostcount int `json:"api_f_lostcount"`
+	ApiECount     int         `json:"api_e_count"`
+	ApiELostcount int         `json:"api_e_lostcount"`
+	ApiFCount     int         `json:"api_f_count"`
+	ApiFLostcount int         `json:"api_f_lostcount"`
+	ApiAirFire    interface{} `json:"api_air_fire"`
 }
 
 type Stage3 struct {
@@ -74,6 +75,9 @@ func (kouku Kouku) calcKoukuDamage(label string, dmg Damage) {
 		kouku.ApiStage1.ApiECount, kouku.ApiStage1.ApiECount-kouku.ApiStage1.ApiELostcount,
 		kouku.ApiStage2.ApiECount, kouku.ApiStage2.ApiECount-kouku.ApiStage2.ApiELostcount,
 		kouku.ApiStage1.ApiTouchPlane[1])
+	if kouku.ApiStage2.ApiAirFire != nil {
+		fmt.Printf("            対空カットイン\n")
+	}
 	fmt.Printf("[%7s1]:", label)
 	for i, v := range kouku.ApiStage3.ApiFdam[1:] {
 		dmg.deck[0].dmg[i+1] += int(v)
@@ -89,6 +93,36 @@ func (kouku Kouku) calcKoukuDamage(label string, dmg Damage) {
 	fmt.Printf("[%7s2]:", label)
 	for i, v := range kouku.ApiStage3Combined.ApiFdam[1:] {
 		dmg.deck[1].dmg[i+1] += int(v)
+		fmt.Printf(" %3d", int(v))
+	}
+	fmt.Printf("\n")
+}
+
+type AirBaseAttack struct {
+	ApiBaseId         int           `json:"api_base_id"`
+	ApiPlaneFrom      [][]int       `json:"api_plane_from"`
+	ApiSquadronPlane  []interface{} `json:"api_squadron_plane"`
+	ApiStage1         Stage1        `json:"api_stage1"`
+	ApiStage2         Stage2        `json:"api_stage2"`
+	ApiStage3         Stage3        `json:"api_stage3"`
+	ApiStage3Combined Stage3        `json:"api_stage3_combined"`
+	ApiStageFlag      []int         `json:"api_stage_flag"`
+}
+
+func (base AirBaseAttack) calcAirBaseAttackDamage(label string, dmg Damage) {
+	fmt.Printf("[%7s%d]: %-5s", label, base.ApiBaseId, base.ApiStage1.ApiDispSeiku)
+	fmt.Printf("%10s / %10s / Touch\n", "All", "Bombers")
+	fmt.Printf("            Friend %3d => %3d / %3d => %3d / %s\n",
+		base.ApiStage1.ApiFCount, base.ApiStage1.ApiFCount-base.ApiStage1.ApiFLostcount,
+		base.ApiStage2.ApiFCount, base.ApiStage2.ApiFCount-base.ApiStage2.ApiFLostcount,
+		base.ApiStage1.ApiTouchPlane[0])
+	fmt.Printf("            Enemy  %3d => %3d / %3d => %3d / %s\n",
+		base.ApiStage1.ApiECount, base.ApiStage1.ApiECount-base.ApiStage1.ApiELostcount,
+		base.ApiStage2.ApiECount, base.ApiStage2.ApiECount-base.ApiStage2.ApiELostcount,
+		base.ApiStage1.ApiTouchPlane[1])
+	fmt.Printf("[%7s%d]: (Enemy)", label, base.ApiBaseId)
+	for i, v := range base.ApiStage3.ApiEdam[1:] {
+		dmg.enemy.dmg[i] += int(v)
 		fmt.Printf(" %3d", int(v))
 	}
 	fmt.Printf("\n")

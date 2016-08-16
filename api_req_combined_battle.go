@@ -116,22 +116,27 @@ func (raigeki Raigeki) calcRaigekiDamage(label string, dmg Damage, deck int) {
 }
 
 type ApiReqCombinedBattleBattle struct {
-	ApiDeckId         string       `json:"api_deck_id"`
-	ApiFormation      Formation    `json:"api_formation"`
-	ApiShipKe         []int        `json:"api_ship_ke"`
-	ApiKouku          Kouku        `json:"api_kouku"`
-	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
-	ApiHougeki1       Hougeki      `json:"api_hougeki1"`
-	ApiHougeki2       Hougeki      `json:"api_hougeki2"`
-	ApiHougeki3       Hougeki      `json:"api_hougeki3"`
-	ApiRaigeki        Raigeki      `json:"api_raigeki"`
-	ApiMaxhps         []int        `json:"api_maxhps"`
-	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
-	ApiNowhps         []int        `json:"api_nowhps"`
-	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
-	ApiStageFlag      []int        `json:"api_stage_flag"`
-	ApiOpeningFlag    int          `json:"api_opening_flag"`
-	ApiHouraiFlag     []int        `json:"api_hourai_flag"`
+	ApiDeckId            string          `json:"api_deck_id"`
+	ApiAirBaseAttack     []AirBaseAttack `json:"api_air_base_attack"`
+	ApiFormation         Formation       `json:"api_formation"`
+	ApiShipKe            []int           `json:"api_ship_ke"`
+	ApiKouku             Kouku           `json:"api_kouku"`
+	ApiSupportInfo       SupportInfo     `json:"api_support_info"`
+	ApiOpeningAtack      OpeningAtack    `json:"api_opening_atack"`
+	ApiOpeningTaisen     Hougeki         `json:"api_opening_taisen"`
+	ApiHougeki1          Hougeki         `json:"api_hougeki1"`
+	ApiHougeki2          Hougeki         `json:"api_hougeki2"`
+	ApiHougeki3          Hougeki         `json:"api_hougeki3"`
+	ApiRaigeki           Raigeki         `json:"api_raigeki"`
+	ApiMaxhps            []int           `json:"api_maxhps"`
+	ApiMaxhpsCombined    []int           `json:"api_maxhps_combined"`
+	ApiNowhps            []int           `json:"api_nowhps"`
+	ApiNowhpsCombined    []int           `json:"api_nowhps_combined"`
+	ApiStageFlag         []int           `json:"api_stage_flag"`
+	ApiSupportFlag       int             `json:"api_support_flag"`
+	ApiOpeningFlag       int             `json:"api_opening_flag"`
+	ApiOpeningTaisenFlag int             `json:"api_opening_taisen_flag"`
+	ApiHouraiFlag        []int           `json:"api_hourai_flag"`
 }
 
 type KcsapiApiReqCombinedBattleBattle struct {
@@ -140,22 +145,27 @@ type KcsapiApiReqCombinedBattleBattle struct {
 }
 
 type ApiReqCombinedBattleBattleWater struct {
-	ApiDeckId         string       `json:"api_deck_id"`
-	ApiFormation      Formation    `json:"api_formation"`
-	ApiShipKe         []int        `json:"api_ship_ke"`
-	ApiKouku          Kouku        `json:"api_kouku"`
-	ApiOpeningAtack   OpeningAtack `json:"api_opening_atack"`
-	ApiHougeki1       Hougeki      `json:"api_hougeki1"`
-	ApiHougeki2       Hougeki      `json:"api_hougeki2"`
-	ApiHougeki3       Hougeki      `json:"api_hougeki3"`
-	ApiRaigeki        Raigeki      `json:"api_raigeki"`
-	ApiMaxhps         []int        `json:"api_maxhps"`
-	ApiMaxhpsCombined []int        `json:"api_maxhps_combined"`
-	ApiNowhps         []int        `json:"api_nowhps"`
-	ApiNowhpsCombined []int        `json:"api_nowhps_combined"`
-	ApiStageFlag      []int        `json:"api_stage_flag"`
-	ApiOpeningFlag    int          `json:"api_opening_flag"`
-	ApiHouraiFlag     []int        `json:"api_hourai_flag"`
+	ApiDeckId            string          `json:"api_deck_id"`
+	ApiAirBaseAttack     []AirBaseAttack `json:"api_air_base_attack"`
+	ApiFormation         Formation       `json:"api_formation"`
+	ApiShipKe            []int           `json:"api_ship_ke"`
+	ApiKouku             Kouku           `json:"api_kouku"`
+	ApiSupportInfo       SupportInfo     `json:"api_support_info"`
+	ApiOpeningAtack      OpeningAtack    `json:"api_opening_atack"`
+	ApiOpeningTaisen     Hougeki         `json:"api_opening_taisen"`
+	ApiHougeki1          Hougeki         `json:"api_hougeki1"`
+	ApiHougeki2          Hougeki         `json:"api_hougeki2"`
+	ApiHougeki3          Hougeki         `json:"api_hougeki3"`
+	ApiRaigeki           Raigeki         `json:"api_raigeki"`
+	ApiMaxhps            []int           `json:"api_maxhps"`
+	ApiMaxhpsCombined    []int           `json:"api_maxhps_combined"`
+	ApiNowhps            []int           `json:"api_nowhps"`
+	ApiNowhpsCombined    []int           `json:"api_nowhps_combined"`
+	ApiStageFlag         []int           `json:"api_stage_flag"`
+	ApiSupportFlag       int             `json:"api_support_flag"`
+	ApiOpeningFlag       int             `json:"api_opening_flag"`
+	ApiOpeningTaisenFlag int             `json:"api_opening_taisen_flag"`
+	ApiHouraiFlag        []int           `json:"api_hourai_flag"`
 }
 
 type KcsapiApiReqCombinedBattleBattleWater struct {
@@ -178,8 +188,17 @@ func handleApiReqCombinedBattleBattle(data []byte) error {
 	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
+	for _, base := range v.ApiData.ApiAirBaseAttack {
+		base.calcAirBaseAttackDamage("BaseAtk", damage)
+	}
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
+	}
+	if v.ApiData.ApiSupportFlag != 0 {
+		v.ApiData.ApiSupportInfo.calcSupportDamage(v.ApiData.ApiSupportFlag, damage)
+	}
+	if v.ApiData.ApiOpeningTaisenFlag == 1 {
+		v.ApiData.ApiOpeningTaisen.calcHougekiDamage("Taisen", damage, 1)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
 		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 1)
@@ -191,10 +210,10 @@ func handleApiReqCombinedBattleBattle(data []byte) error {
 		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[2] == 1 {
-		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki2", damage, 0)
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
-		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki3", damage, 0)
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", damage, 0)
 	}
 
 	damage.dumpHps()
@@ -217,8 +236,17 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
+	for _, base := range v.ApiData.ApiAirBaseAttack {
+		base.calcAirBaseAttackDamage("BaseAtk", damage)
+	}
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
+	}
+	if v.ApiData.ApiSupportFlag != 0 {
+		v.ApiData.ApiSupportInfo.calcSupportDamage(v.ApiData.ApiSupportFlag, damage)
+	}
+	if v.ApiData.ApiOpeningTaisenFlag == 1 {
+		v.ApiData.ApiOpeningTaisen.calcHougekiDamage("Taisen", damage, 1)
 	}
 	if v.ApiData.ApiOpeningFlag == 1 {
 		v.ApiData.ApiOpeningAtack.calcOpeningAtackDamage("Raigeki1", damage, 1)
@@ -227,10 +255,10 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 		v.ApiData.ApiHougeki1.calcHougekiDamage("Hougeki1", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[1] == 1 {
-		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki2", damage, 0)
+		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki2", damage, 0)
 	}
 	if v.ApiData.ApiHouraiFlag[2] == 1 {
-		v.ApiData.ApiHougeki2.calcHougekiDamage("Hougeki3", damage, 1)
+		v.ApiData.ApiHougeki3.calcHougekiDamage("Hougeki3", damage, 1)
 	}
 	if v.ApiData.ApiHouraiFlag[3] == 1 {
 		v.ApiData.ApiRaigeki.calcRaigekiDamage("Raigeki2", damage, 1)
@@ -242,15 +270,16 @@ func handleApiReqCombinedBattleBattleWater(data []byte) error {
 }
 
 type ApiReqCombinedBattleLdAirbattle struct {
-	ApiDeckId         string    `json:"api_deck_id"`
-	ApiFormation      Formation `json:"api_formation"`
-	ApiShipKe         []int     `json:"api_ship_ke"`
-	ApiKouku          Kouku     `json:"api_kouku"`
-	ApiMaxhps         []int     `json:"api_maxhps"`
-	ApiMaxhpsCombined []int     `json:"api_maxhps_combined"`
-	ApiNowhps         []int     `json:"api_nowhps"`
-	ApiNowhpsCombined []int     `json:"api_nowhps_combined"`
-	ApiStageFlag      []int     `json:"api_stage_flag"`
+	ApiDeckId         string          `json:"api_deck_id"`
+	ApiAirBaseAttack  []AirBaseAttack `json:"api_air_base_attack"`
+	ApiFormation      Formation       `json:"api_formation"`
+	ApiShipKe         []int           `json:"api_ship_ke"`
+	ApiKouku          Kouku           `json:"api_kouku"`
+	ApiMaxhps         []int           `json:"api_maxhps"`
+	ApiMaxhpsCombined []int           `json:"api_maxhps_combined"`
+	ApiNowhps         []int           `json:"api_nowhps"`
+	ApiNowhpsCombined []int           `json:"api_nowhps_combined"`
+	ApiStageFlag      []int           `json:"api_stage_flag"`
 }
 
 type KcsapiApiReqCombinedBattleLdAirbattle struct {
@@ -273,6 +302,9 @@ func handleApiReqCombinedBattleLdAirbattle(data []byte) error {
 	damage.initCombined(v.ApiData.ApiNowhpsCombined, v.ApiData.ApiMaxhpsCombined)
 
 	v.ApiData.ApiFormation.dumpFormation()
+	for _, base := range v.ApiData.ApiAirBaseAttack {
+		base.calcAirBaseAttackDamage("BaseAtk", damage)
+	}
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
 	}

@@ -6,22 +6,25 @@ import (
 )
 
 type ApiReqSortieBattle struct {
-	ApiDockId            int          `json:"api_dock_id"`
-	ApiFormation         Formation    `json:"api_formation"`
-	ApiShipKe            []int        `json:"api_ship_ke"`
-	ApiKouku             Kouku        `json:"api_kouku"`
-	ApiOpeningAtack      OpeningAtack `json:"api_opening_atack"`
-	ApiOpeningTaisen     Hougeki      `json:"api_opening_taisen"`
-	ApiHougeki1          Hougeki      `json:"api_hougeki1"`
-	ApiHougeki2          Hougeki      `json:"api_hougeki2"`
-	ApiHougeki3          Hougeki      `json:"api_hougeki3"`
-	ApiRaigeki           Raigeki      `json:"api_raigeki"`
-	ApiMaxhps            []int        `json:"api_maxhps"`
-	ApiNowhps            []int        `json:"api_nowhps"`
-	ApiStageFlag         []int        `json:"api_stage_flag"`
-	ApiOpeningFlag       int          `json:"api_opening_flag"`
-	ApiOpeningTaisenFlag int          `json:"api_opening_taisen_flag"`
-	ApiHouraiFlag        []int        `json:"api_hourai_flag"`
+	ApiDockId            int             `json:"api_dock_id"`
+	ApiAirBaseAttack     []AirBaseAttack `json:"api_air_base_attack"`
+	ApiFormation         Formation       `json:"api_formation"`
+	ApiShipKe            []int           `json:"api_ship_ke"`
+	ApiKouku             Kouku           `json:"api_kouku"`
+	ApiSupportInfo       SupportInfo     `json:"api_support_info"`
+	ApiOpeningAtack      OpeningAtack    `json:"api_opening_atack"`
+	ApiOpeningTaisen     Hougeki         `json:"api_opening_taisen"`
+	ApiHougeki1          Hougeki         `json:"api_hougeki1"`
+	ApiHougeki2          Hougeki         `json:"api_hougeki2"`
+	ApiHougeki3          Hougeki         `json:"api_hougeki3"`
+	ApiRaigeki           Raigeki         `json:"api_raigeki"`
+	ApiMaxhps            []int           `json:"api_maxhps"`
+	ApiNowhps            []int           `json:"api_nowhps"`
+	ApiStageFlag         []int           `json:"api_stage_flag"`
+	ApiSupportFlag       int             `json:"api_support_flag"`
+	ApiOpeningFlag       int             `json:"api_opening_flag"`
+	ApiOpeningTaisenFlag int             `json:"api_opening_taisen_flag"`
+	ApiHouraiFlag        []int           `json:"api_hourai_flag"`
 }
 
 type KcsapiApiReqSortieBattle struct {
@@ -44,8 +47,14 @@ func handleApiReqSortieBattle(data []byte) error {
 	damage.init(v.ApiData.ApiNowhps, v.ApiData.ApiMaxhps, v.ApiData.ApiShipKe)
 
 	v.ApiData.ApiFormation.dumpFormation()
+	for _, base := range v.ApiData.ApiAirBaseAttack {
+		base.calcAirBaseAttackDamage("BaseAtk", damage)
+	}
 	if v.ApiData.ApiStageFlag[2] == 1 {
 		v.ApiData.ApiKouku.calcKoukuDamage("Kouku", damage)
+	}
+	if v.ApiData.ApiSupportFlag != 0 {
+		v.ApiData.ApiSupportInfo.calcSupportDamage(v.ApiData.ApiSupportFlag, damage)
 	}
 	if v.ApiData.ApiOpeningTaisenFlag == 1 {
 		v.ApiData.ApiOpeningTaisen.calcHougekiDamage("Taisen", damage, 0)

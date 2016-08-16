@@ -62793,34 +62793,34 @@
       },
       {
         "api_battle_d": [
-          -8,
-          104
+          100,
+          156
         ],
         "api_battle_n": [
-          112,
-          96
+          36,
+          120
         ],
         "api_boko_d": [
-          40,
-          128
+          132,
+          184
         ],
         "api_boko_n": [
-          128,
-          112
+          56,
+          144
         ],
         "api_ensyue_n": [
-          96,
+          8,
           0
         ],
         "api_ensyuf_d": [
-          0,
-          96
+          64,
+          128
         ],
         "api_ensyuf_n": [
-          112,
-          96
+          4,
+          116
         ],
-        "api_filename": "rgfuelwdntub",
+        "api_filename": "rgfuelwdntuz",
         "api_id": 347,
         "api_kaisyu_d": [
           0,
@@ -62831,34 +62831,34 @@
           -12
         ],
         "api_kaizo_d": [
-          0,
-          48
-        ],
-        "api_kaizo_n": [
-          112,
-          48
-        ],
-        "api_map_d": [
-          0,
+          80,
           112
         ],
+        "api_kaizo_n": [
+          4,
+          84
+        ],
+        "api_map_d": [
+          76,
+          156
+        ],
         "api_map_n": [
-          112,
-          96
+          20,
+          120
         ],
         "api_sortno": 1427,
         "api_version": [
-          "10",
+          "11",
           "10",
           "801"
         ],
         "api_weda": [
-          88,
-          32
+          200,
+          24
         ],
         "api_wedb": [
           112,
-          112
+          104
         ]
       },
       {
@@ -67413,34 +67413,34 @@
       },
       {
         "api_battle_d": [
-          -8,
-          104
+          100,
+          156
         ],
         "api_battle_n": [
-          112,
-          96
+          36,
+          120
         ],
         "api_boko_d": [
-          40,
-          128
+          132,
+          184
         ],
         "api_boko_n": [
-          128,
-          112
+          56,
+          144
         ],
         "api_ensyue_n": [
-          96,
+          8,
           0
         ],
         "api_ensyuf_d": [
-          0,
-          96
+          64,
+          128
         ],
         "api_ensyuf_n": [
-          112,
-          96
+          4,
+          116
         ],
-        "api_filename": "nsutzbtifaji",
+        "api_filename": "nsutzbtifajz",
         "api_id": 443,
         "api_kaisyu_d": [
           0,
@@ -67451,34 +67451,34 @@
           -12
         ],
         "api_kaizo_d": [
-          0,
-          48
-        ],
-        "api_kaizo_n": [
-          112,
-          48
-        ],
-        "api_map_d": [
-          0,
+          80,
           112
         ],
+        "api_kaizo_n": [
+          4,
+          84
+        ],
+        "api_map_d": [
+          76,
+          156
+        ],
         "api_map_n": [
-          112,
-          96
+          20,
+          120
         ],
         "api_sortno": 243,
         "api_version": [
-          "10",
+          "11",
           "10",
           "801"
         ],
         "api_weda": [
-          88,
-          32
+          200,
+          24
         ],
         "api_wedb": [
           112,
-          112
+          104
         ]
       },
       {

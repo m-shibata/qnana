@@ -36,7 +36,7 @@ func (ship Ship) String() string {
 	}
 }
 
-var currentDeckId int
+var currentDeckId = 1
 var decksData [][]Ship
 
 type DeckPort struct {
@@ -59,6 +59,22 @@ func (port ApiPortPort) findShip(id int) (Ship, error) {
 	return ship, errors.New("not found")
 }
 
+type KcsapiApiPortPortSimplified struct {
+	ApiData []interface{} `json:"api_data"`
+	KcsapiBase
+}
+
+func handleApiPortPortSimplified(data []byte) error {
+	var v KcsapiApiPortPortSimplified
+	err := json.Unmarshal(data, &v)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("[%8s] simplified data\n", "Port")
+	return err
+}
+
 type KcsapiApiPortPort struct {
 	ApiData ApiPortPort `json:"api_data"`
 	KcsapiBase
@@ -68,7 +84,7 @@ func handleApiPortPort(data []byte) error {
 	var v KcsapiApiPortPort
 	err := json.Unmarshal(data, &v)
 	if err != nil {
-		return err
+		return handleApiPortPortSimplified(data)
 	}
 
 	currentDeckId = 1

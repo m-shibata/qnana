@@ -26,9 +26,10 @@ func dumpRank(param RankParams) {
 		} else {
 			fmt.Printf(" / %s", decksData[currentDeckId-1][param.mvp1-1])
 			if param.mvp2 > 0 {
-				if len(decksData[currentDeckId-1]) < param.mvp2 {
-					fmt.Printf(", unknown")
-					fmt.Printf(", %s", decksData[currentDeckId-1][param.mvp2-1])
+				if len(decksData[1]) < param.mvp2 {
+					fmt.Printf(" / unknown")
+				} else {
+					fmt.Printf(" / %s", decksData[1][param.mvp2-1])
 				}
 			}
 		}
@@ -48,7 +49,7 @@ func dumpExp(label string, bases [][]int, exp []int) {
 		}
 
 		if exp[i+1] == -1 {
-			fmt.Printf(" ----/%8d", remain)
+			fmt.Printf(" ----/%d", remain)
 		} else {
 			fmt.Printf(" %4d/%d", exp[i+1], remain)
 		}
