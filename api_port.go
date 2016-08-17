@@ -29,8 +29,8 @@ type Ship struct {
 }
 
 func (ship Ship) String() string {
-	if len(shipData) > ship.ApiShipId {
-		return shipData[ship.ApiShipId].ApiName
+	if d, ok := shipData[ship.ApiShipId]; ok {
+		return d.ApiName
 	} else {
 		return "unknown"
 	}

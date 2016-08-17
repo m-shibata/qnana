@@ -6,11 +6,6 @@ import (
 	"strings"
 )
 
-type SlotItem struct {
-	ApiId         int `json:"api_id"`
-	ApiSlotitemId int `json:"api_slotitem_id"`
-}
-
 type ApiReqKousyouCreateitem struct {
 	ApiCreateFlag int      `json:"api_create_flag"`
 	ApiMaterial   []int    `json:"api_material"`

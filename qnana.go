@@ -171,7 +171,9 @@ func parse(wait *sync.WaitGroup) {
 			case "/kcsapi/api_get_member/require_info":
 			case "/kcsapi/api_get_member/ship3":
 			case "/kcsapi/api_get_member/ship_deck":
+				/* do nothing */
 			case "/kcsapi/api_get_member/slot_item":
+				err = handleApiGetMemberSlotItem(b)
 			case "/kcsapi/api_get_member/sortie_conditions":
 			case "/kcsapi/api_get_member/unsetslot":
 			case "/kcsapi/api_get_member/useitem":

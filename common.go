@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type RankParams struct {
@@ -56,4 +57,36 @@ func dumpExp(label string, bases [][]int, exp []int) {
 	}
 
 	fmt.Printf("\n")
+}
+
+type SkillLv int
+
+func (i SkillLv) String() string {
+	switch i {
+	case 0:
+		return ""
+	case 1:
+		return "|"
+	case 2:
+		return "||"
+	case 3:
+		return "|||"
+	case 4:
+		return "/"
+	case 5:
+		return "//"
+	case 6:
+		return "///"
+	case 7:
+		return ">>"
+	}
+	return strconv.Itoa(int(i))
+}
+
+type SlotItem struct {
+	ApiId         int `json:"api_id"`
+	ApiLevel int `json:"api_level"`
+	ApiLocked int `json:"api_locked"`
+	ApiSlotitemId int `json:"api_slotitem_id"`
+	ApiAlv SkillLv `json:"api_alv"`
 }
