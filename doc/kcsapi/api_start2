@@ -50963,34 +50963,34 @@
       },
       {
         "api_battle_d": [
-          80,
-          112
-        ],
-        "api_battle_n": [
-          48,
-          112
-        ],
-        "api_boko_d": [
           64,
-          128
-        ],
-        "api_boko_n": [
-          48,
           144
         ],
+        "api_battle_n": [
+          112,
+          132
+        ],
+        "api_boko_d": [
+          100,
+          156
+        ],
+        "api_boko_n": [
+          124,
+          156
+        ],
         "api_ensyue_n": [
-          32,
+          80,
           0
         ],
         "api_ensyuf_d": [
-          64,
-          48
+          40,
+          128
         ],
         "api_ensyuf_n": [
-          64,
-          112
+          92,
+          124
         ],
-        "api_filename": "rxzrrkjqvyqy",
+        "api_filename": "rxzrrkjqvyqz",
         "api_id": 175,
         "api_kaisyu_d": [
           24,
@@ -51001,34 +51001,34 @@
           0
         ],
         "api_kaizo_d": [
-          72,
-          32
+          40,
+          88
         ],
         "api_kaizo_n": [
-          48,
-          64
+          92,
+          88
         ],
         "api_map_d": [
-          64,
-          112
+          52,
+          132
         ],
         "api_map_n": [
-          48,
-          112
+          92,
+          120
         ],
         "api_sortno": 175,
         "api_version": [
-          "2",
+          "3",
           "2",
           "1"
         ],
         "api_weda": [
-          168,
-          24
+          128,
+          -4
         ],
         "api_wedb": [
-          112,
-          112
+          92,
+          120
         ]
       },
       {
@@ -51313,34 +51313,34 @@
       },
       {
         "api_battle_d": [
-          80,
-          112
-        ],
-        "api_battle_n": [
-          48,
-          112
-        ],
-        "api_boko_d": [
           64,
-          128
-        ],
-        "api_boko_n": [
-          48,
           144
         ],
+        "api_battle_n": [
+          112,
+          132
+        ],
+        "api_boko_d": [
+          100,
+          156
+        ],
+        "api_boko_n": [
+          124,
+          156
+        ],
         "api_ensyue_n": [
-          32,
+          80,
           0
         ],
         "api_ensyuf_d": [
-          64,
-          48
+          40,
+          128
         ],
         "api_ensyuf_n": [
-          64,
-          112
+          92,
+          124
         ],
-        "api_filename": "utmejyqmcvbk",
+        "api_filename": "utmejyqmcvbz",
         "api_id": 180,
         "api_kaisyu_d": [
           24,
@@ -51351,34 +51351,34 @@
           0
         ],
         "api_kaizo_d": [
-          72,
-          32
+          40,
+          88
         ],
         "api_kaizo_n": [
-          48,
-          64
+          92,
+          88
         ],
         "api_map_d": [
-          64,
-          112
+          52,
+          132
         ],
         "api_map_n": [
-          48,
-          112
+          92,
+          120
         ],
         "api_sortno": 180,
         "api_version": [
-          "1",
+          "2",
           "1",
           "1"
         ],
         "api_weda": [
-          168,
-          24
+          128,
+          -4
         ],
         "api_wedb": [
-          112,
-          112
+          92,
+          120
         ]
       },
       {
@@ -60273,34 +60273,34 @@
       },
       {
         "api_battle_d": [
-          80,
-          112
-        ],
-        "api_battle_n": [
-          48,
-          112
-        ],
-        "api_boko_d": [
           64,
-          128
-        ],
-        "api_boko_n": [
-          48,
           144
         ],
+        "api_battle_n": [
+          112,
+          132
+        ],
+        "api_boko_d": [
+          100,
+          156
+        ],
+        "api_boko_n": [
+          124,
+          156
+        ],
         "api_ensyue_n": [
-          32,
+          80,
           0
         ],
         "api_ensyuf_d": [
-          64,
-          48
+          40,
+          128
         ],
         "api_ensyuf_n": [
-          64,
-          112
+          92,
+          124
         ],
-        "api_filename": "vksfcnchqurh",
+        "api_filename": "vksfcnchqurz",
         "api_id": 311,
         "api_kaisyu_d": [
           24,
@@ -60311,34 +60311,34 @@
           0
         ],
         "api_kaizo_d": [
-          72,
-          32
+          40,
+          88
         ],
         "api_kaizo_n": [
-          48,
-          64
+          92,
+          88
         ],
         "api_map_d": [
-          64,
-          112
+          52,
+          132
         ],
         "api_map_n": [
-          48,
-          112
+          92,
+          120
         ],
         "api_sortno": 1407,
         "api_version": [
-          "1",
+          "2",
           "1",
           "1"
         ],
         "api_weda": [
-          168,
-          24
+          128,
+          -4
         ],
         "api_wedb": [
-          112,
-          112
+          92,
+          120
         ]
       },
       {

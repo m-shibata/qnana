@@ -295,6 +295,12 @@
       "api_id": 88
     },
     {
+      "api_furniture_id": 90,
+      "api_furniture_no": 18,
+      "api_furniture_type": 2,
+      "api_id": 90
+    },
+    {
       "api_furniture_id": 96,
       "api_furniture_no": 24,
       "api_furniture_type": 2,
@@ -811,6 +817,18 @@
       "api_id": 247
     },
     {
+      "api_furniture_id": 248,
+      "api_furniture_no": 51,
+      "api_furniture_type": 5,
+      "api_id": 248
+    },
+    {
+      "api_furniture_id": 249,
+      "api_furniture_no": 37,
+      "api_furniture_type": 2,
+      "api_id": 249
+    },
+    {
       "api_furniture_id": 257,
       "api_furniture_no": 53,
       "api_furniture_type": 5,
@@ -1001,6 +1019,18 @@
       "api_furniture_no": 43,
       "api_furniture_type": 4,
       "api_id": 301
+    },
+    {
+      "api_furniture_id": 303,
+      "api_furniture_no": 42,
+      "api_furniture_type": 0,
+      "api_id": 303
+    },
+    {
+      "api_furniture_id": 311,
+      "api_furniture_no": 43,
+      "api_furniture_type": 2,
+      "api_id": 311
     }
   ],
   "api_result": 1,
