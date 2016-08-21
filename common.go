@@ -84,9 +84,9 @@ func (i SkillLv) String() string {
 }
 
 type SlotItem struct {
-	ApiId         int `json:"api_id"`
-	ApiLevel int `json:"api_level"`
-	ApiLocked int `json:"api_locked"`
-	ApiSlotitemId int `json:"api_slotitem_id"`
-	ApiAlv SkillLv `json:"api_alv"`
+	ApiId         int     `json:"api_id"`
+	ApiLevel      int     `json:"api_level"`
+	ApiLocked     int     `json:"api_locked"`
+	ApiSlotitemId int     `json:"api_slotitem_id"`
+	ApiAlv        SkillLv `json:"api_alv"`
 }

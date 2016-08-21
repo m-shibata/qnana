@@ -22,7 +22,7 @@ func handleApiGetMemberSlotItem(data []byte) error {
 
 	itemsData = make(map[int]SlotItem, len(v.ApiData))
 
-    for _, item := range v.ApiData {
+	for _, item := range v.ApiData {
 		itemsData[item.ApiId] = item
 	}
 
@@ -61,4 +61,3 @@ func handleApiGetMemberSlotItem(data []byte) error {
 	}
 	return err
 }
-
