@@ -14,6 +14,16 @@ func (f Formation) Formation(i int) string {
 	switch t := f[i].(type) {
 	case string:
 		switch t {
+		case "1":
+			return "単縦陣"
+		case "2":
+			return "複縦陣"
+		case "3":
+			return "輪形陣"
+		case "4":
+			return "梯形陣"
+		case "5":
+			return "単横陣"
 		case "11":
 			return "第1警戒航行序列"
 		case "12":
